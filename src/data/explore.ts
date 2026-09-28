@@ -1,0 +1,53 @@
+import { User, Layers, Folder, Mail } from "lucide-react";
+import type { ExploreCardItem } from "../types/portfolio";
+
+export const EXPLORE_CARDS: ExploreCardItem[] = [
+  {
+    id: "about",
+    title: "About Me",
+    description: "Know more about my background and journey.",
+    icon: User,
+    badgeBg: "bg-purple-950/40",
+    badgeBorder: "border-purple-500/30",
+    badgeTextColor: "text-purple-400",
+    glowColor: "group-hover:border-purple-500/50 group-hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]",
+    actionText: "Learn More",
+    targetId: "about",
+  },
+  {
+    id: "skills",
+    title: "Skills",
+    description: "Technologies and tools I work with.",
+    icon: Layers,
+    badgeBg: "bg-cyan-950/40",
+    badgeBorder: "border-cyan-500/30",
+    badgeTextColor: "text-cyan-400",
+    glowColor: "group-hover:border-cyan-500/50 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.25)]",
+    actionText: "View Stack",
+    targetId: "skills",
+  },
+  {
+    id: "projects",
+    title: "Projects",
+    description: "Real-world projects and applications.",
+    icon: Folder,
+    badgeBg: "bg-emerald-950/40",
+    badgeBorder: "border-emerald-500/30",
+    badgeTextColor: "text-emerald-400",
+    glowColor: "group-hover:border-emerald-500/50 group-hover:shadow-[0_0_25px_rgba(16,185,129,0.25)]",
+    actionText: "See Works",
+    targetId: "projects",
+  },
+  {
+    id: "contact",
+    title: "Contact",
+    description: "Let's connect and build something great.",
+    icon: Mail,
+    badgeBg: "bg-amber-950/40",
+    badgeBorder: "border-amber-500/30",
+    badgeTextColor: "text-amber-400",
+    glowColor: "group-hover:border-amber-500/50 group-hover:shadow-[0_0_25px_rgba(245,158,11,0.25)]",
+    actionText: "Get in Touch",
+    targetId: "contact",
+  },
+];

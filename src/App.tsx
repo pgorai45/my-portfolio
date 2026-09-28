@@ -1,20 +1,28 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { RootLayout } from "./layouts/RootLayout";
-import { LandingPage } from "./pages/LandingPage";
-import { Home } from "./pages/Home";
+import { lazy, Suspense } from "react";
 
+const Home = lazy(() => import("./pages/Home"));
+const LandingPage = lazy(() => import("./pages/LandingPage"));
 
 export function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<RootLayout />}>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<Home />} />
-          {/* Catch-all redirect to Landing Page */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
+      <Suspense
+        fallback={
+          <div className="min-h-screen bg-[#020617] flex items-center justify-center text-white">
+            Loading...
+          </div>
+        }
+      >
+        <Routes>
+          <Route element={<RootLayout />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

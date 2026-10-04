@@ -29,7 +29,7 @@ export const HomeHeroVisual: React.FC = () => {
               const backendOrigin =
                 import.meta.env.VITE_BACKEND_URL ||
                 import.meta.env.VITE_API_URL ||
-                "http://localhost:5000";
+                "https://my-portfolio-production-98ef.up.railway.app";
               setHeroImage(`${backendOrigin.replace(/\/+$/, "")}${rawImage}`);
             } else {
               setHeroImage(rawImage);
@@ -62,7 +62,6 @@ export const HomeHeroVisual: React.FC = () => {
 
   return (
     <div className="relative w-full max-w-[460px] lg:max-w-[500px] xl:max-w-[540px] flex items-center justify-center select-none py-2">
-      
       {/* =========================================
           SUBTLE TECH PARTICLES
           No large background glow

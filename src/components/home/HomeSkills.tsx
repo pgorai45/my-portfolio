@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
+import { portfolioApi } from "../../services/api";
 
 // ─── Custom Brand & Domain Icons (Crisp, High-DPI SVGs) ───────────────────────
 const TechIcons: Record<string, React.FC<{ className?: string }>> = {
@@ -596,11 +597,46 @@ export const HomeSkills: React.FC = () => {
   const [inView, setInView] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  const filteredSkills = ALL_SKILLS.filter((skill) =>
+  const [skillsList, setSkillsList] = useState<SkillItem[]>(ALL_SKILLS);
+
+  useEffect(() => {
+    portfolioApi.getSkills().then((res) => {
+      if (res.success && res.data && res.data.length > 0) {
+        const mapped: SkillItem[] = res.data.map((dbSkill) => {
+          const existing = ALL_SKILLS.find(
+            (s) => s.name.toLowerCase() === dbSkill.name.toLowerCase()
+          );
+          return {
+            name: dbSkill.name,
+            category: dbSkill.category,
+            categoryLabel: dbSkill.category_label || dbSkill.category,
+            proficiencySubtitle: dbSkill.proficiency_subtitle,
+            percentage: dbSkill.percentage,
+            glowColor: existing?.glowColor || "rgba(168,85,247,0.4)",
+            badgeBorder: existing?.badgeBorder || "border-purple-400/40",
+            progressGradient:
+              existing?.progressGradient || "bg-gradient-to-r from-purple-500 to-indigo-500",
+            hasFloat: existing?.hasFloat ?? false,
+          };
+        });
+        setSkillsList(mapped);
+      }
+    });
+  }, []);
+
+  const dynamicCategoryTabs = CATEGORY_TABS.map((tab) => {
+    const count = skillsList.filter((s) =>
+      Array.isArray(s.category) ? s.category.includes(tab.id) : s.category === tab.id
+    ).length;
+    return { ...tab, count };
+  });
+
+  const filteredSkills = skillsList.filter((skill) =>
     Array.isArray(skill.category)
       ? skill.category.includes(selectedCategory)
       : skill.category === selectedCategory
   );
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -736,7 +772,7 @@ export const HomeSkills: React.FC = () => {
             variants={itemFadeUp}
             className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-10"
           >
-            {CATEGORY_TABS.map((tab) => {
+            {dynamicCategoryTabs.map((tab) => {
               const TabIcon = tab.icon;
               const isActive = selectedCategory === tab.id;
               return (

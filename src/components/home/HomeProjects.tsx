@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import {
   FolderCode,
@@ -9,6 +9,7 @@ import { cn } from "../../utils/cn";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
 import { GithubIcon } from "../common/SocialIcons";
 import { FEATURED_PROJECTS, type ProjectItem } from "../../data/projects";
+import { portfolioApi } from "../../services/api";
 
 // ─── Color Themes Per Project ───────────────────────────────────────────────
 const ACCENT_STYLES = {
@@ -314,6 +315,52 @@ const ProjectPreviewVisual: React.FC<{ type: ProjectItem["previewType"] }> = ({
 // ─── Main HomeProjects Component ────────────────────────────────────────────
 export const HomeProjects: React.FC = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [projectsList, setProjectsList] = useState<(ProjectItem & { imageUrl?: string; liveDemoUrl?: string })[]>(FEATURED_PROJECTS as any);
+
+  useEffect(() => {
+    portfolioApi.getProjects().then((res) => {
+      if (res.success && res.data && res.data.length > 0) {
+        const validAccents = ["amber", "purple", "cyan", "emerald", "indigo"] as const;
+        const validPreviews = ["furniture", "resume", "crypto", "telemetry", "quiz"] as const;
+
+        const mapped = res.data.map((p: any, idx: number) => {
+          let tags: string[] = [];
+          if (Array.isArray(p.technologies)) {
+            tags = p.technologies;
+          } else if (typeof p.technologies === "string") {
+            try {
+              tags = JSON.parse(p.technologies);
+            } catch {
+              tags = p.technologies.split(",").map((s: string) => s.trim()).filter(Boolean);
+            }
+          }
+
+          const accent = validAccents.includes(p.accent_color)
+            ? p.accent_color
+            : validAccents[idx % validAccents.length];
+
+          const previewType = validPreviews.includes(p.preview_type)
+            ? p.preview_type
+            : validPreviews[idx % validPreviews.length];
+
+          return {
+            id: String(p.id),
+            number: String(idx + 1).padStart(2, "0"),
+            title: p.title,
+            category: p.category || "Full Stack",
+            description: p.short_description || p.full_description || "",
+            tags,
+            githubUrl: p.github_url || "",
+            liveDemoUrl: p.live_demo_url || p.github_url || "",
+            accent,
+            previewType,
+            imageUrl: p.image_url,
+          };
+        });
+        setProjectsList(mapped);
+      }
+    });
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -445,8 +492,8 @@ export const HomeProjects: React.FC = () => {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch"
         >
-          {FEATURED_PROJECTS.map((project) => {
-            const config = ACCENT_STYLES[project.accent];
+          {projectsList.map((project) => {
+            const config = ACCENT_STYLES[project.accent] || ACCENT_STYLES.purple;
 
             return (
               <motion.div
@@ -487,8 +534,16 @@ export const HomeProjects: React.FC = () => {
                       config.previewBg
                     )}
                   >
-                    {/* Visual Mockup Component */}
-                    <ProjectPreviewVisual type={project.previewType} />
+                    {/* Visual Mockup or Uploaded Image */}
+                    {project.imageUrl ? (
+                      <img
+                        src={project.imageUrl}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-center"
+                      />
+                    ) : (
+                      <ProjectPreviewVisual type={project.previewType} />
+                    )}
 
                     {/* Floating Project Number Tag */}
                     <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-md border border-white/10 text-xs font-mono font-bold tracking-wider">
@@ -538,7 +593,7 @@ export const HomeProjects: React.FC = () => {
                 <div className="relative z-10 pt-4 border-t border-white/[0.06] flex items-center justify-between gap-3">
                   {/* Primary: View Project */}
                   <a
-                    href={project.githubUrl}
+                    href={project.liveDemoUrl || project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(

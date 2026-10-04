@@ -74,9 +74,17 @@ export const HomeFooter: React.FC = () => {
             </button>
           </div>
 
-          {/* Copyright Notice */}
-          <div className="text-xs text-slate-500 text-center md:text-right">
-            © 2026 Prasanta Gorai. All rights reserved.
+          {/* Copyright Notice & Admin Access */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 text-xs text-slate-500 text-center md:text-right">
+            <span>© 2026 Prasanta Gorai. All rights reserved.</span>
+            <span className="hidden sm:inline">•</span>
+            <Link
+              to="/admin/login"
+              className="text-slate-500 hover:text-purple-400 transition-colors inline-flex items-center gap-1 opacity-70 hover:opacity-100"
+              title="Admin CMS Portal"
+            >
+              <span>Admin Portal</span>
+            </Link>
           </div>
         </div>
       </footer>

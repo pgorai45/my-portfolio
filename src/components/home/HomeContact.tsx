@@ -19,6 +19,7 @@ import {
 import prasantaPhoto from "../../assets/images/prasanta-hero.png";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
 import { sendAppointmentConfirmationEmail } from "../../services/emailService";
+import { portfolioApi } from "../../services/api";
 
 interface BookingInfo {
   name: string;
@@ -169,6 +170,15 @@ export const HomeContact: React.FC = () => {
 
     // Success confirmation: confirm appointment first so booking is guaranteed
     setBookingConfirmed(true);
+
+    // Store appointment directly in PostgreSQL database
+    portfolioApi.submitAppointment({
+      name: bookingInfo.name.trim(),
+      email: bookingInfo.emailOrPhone.includes("@") ? bookingInfo.emailOrPhone.trim() : "visitor@portfolio.com",
+      date: formattedSelectedDate,
+      time: selectedSlot || "",
+      message: bookingInfo.notes.trim() || undefined,
+    }).catch((err) => console.warn("Failed to store appointment in DB:", err));
 
     // Prevent duplicate emails if confirmation is triggered multiple times
     if (hasSentAppointmentEmailRef.current) {

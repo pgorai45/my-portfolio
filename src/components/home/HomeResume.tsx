@@ -9,11 +9,24 @@ import {
 } from "lucide-react";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
 import resumePdf from "../../assets/resume/Prasanta_Gorai_Resume.pdf";
-
+import { portfolioApi } from "../../services/api";
 
 export const HomeResume: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activePdfUrl, setActivePdfUrl] = useState<string>(resumePdf);
+  const [resumeTitle, setResumeTitle] = useState<string>("Prasanta Gorai — Resume");
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    portfolioApi.getResume().then((res) => {
+      if (res.success && res.data && res.data.file_path) {
+        setActivePdfUrl(res.data.file_path);
+        if (res.data.title) {
+          setResumeTitle(res.data.title);
+        }
+      }
+    });
+  }, []);
 
   // Escape key listener & body scroll lock
   useEffect(() => {
@@ -203,10 +216,10 @@ export const HomeResume: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-base sm:text-lg">
-                      Prasanta Gorai — Resume
+                      {resumeTitle}
                     </h3>
                     <p className="text-xs text-slate-400 hidden sm:block">
-                      Full Stack Developer • B.Tech CSE (8.7 CGPA)
+                      Full Stack Developer • Active Resume
                     </p>
                   </div>
                 </div>
@@ -214,8 +227,10 @@ export const HomeResume: React.FC = () => {
                 <div className="flex items-center gap-2.5 sm:gap-3">
                   {/* Download Resume Button inside Viewer */}
                   <a
-                    href={resumePdf}
+                    href={activePdfUrl}
                     download="Prasanta_Gorai_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-white bg-purple-600 hover:bg-purple-500 shadow-md transition-all duration-200 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]"
                   >
                     <Download className="w-4 h-4" />
@@ -237,7 +252,7 @@ export const HomeResume: React.FC = () => {
               {/* Modal Body: Responsive PDF Embed Frame */}
               <div className="relative flex-1 w-full h-full bg-slate-950 overflow-hidden flex flex-col items-center justify-center">
                 <iframe
-                  src={`${resumePdf}#toolbar=0`}
+                  src={`${activePdfUrl}#toolbar=0`}
                   title="Prasanta Gorai Resume"
                   className="w-full h-full border-none"
                 />
@@ -245,7 +260,7 @@ export const HomeResume: React.FC = () => {
                 {/* Mobile Fallback Action Strip */}
                 <div className="sm:hidden absolute bottom-3 inset-x-4 p-2.5 rounded-xl bg-slate-900/95 border border-white/10 text-center backdrop-blur-sm">
                   <a
-                    href={resumePdf}
+                    href={activePdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs text-purple-300 font-semibold inline-flex items-center gap-1.5"

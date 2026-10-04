@@ -8,9 +8,29 @@ import {
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
+import { portfolioApi } from "../../services/api";
+import type { PortfolioProfile } from "../../types/admin";
 
 export const HomeAbout: React.FC = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  const [profile, setProfile] = React.useState<PortfolioProfile>({
+    name: "Prasanta Gorai",
+    title: "Full Stack Developer",
+    about_intro:
+      "I'm Prasanta Gorai, a Computer Science student and aspiring Full Stack Developer who enjoys building modern and interactive web applications.",
+    about_details:
+      "I enjoy learning how modern web applications work from frontend interfaces to backend systems and databases. My goal is to continuously improve my development skills and build useful, scalable and user-friendly applications.\n\nI'm currently focusing on strengthening my skills in React, TypeScript, backend development, databases and modern software development practices.",
+  });
+
+  React.useEffect(() => {
+    portfolioApi.getProfile().then((res) => {
+      if (res.success && res.data) {
+        setProfile((prev) => ({ ...prev, ...res.data }));
+      }
+    });
+  }, []);
+
 
   // Motion variants for container scroll-reveal orchestration
   const containerVariants = {
@@ -244,9 +264,8 @@ export const HomeAbout: React.FC = () => {
             variants={itemFadeUp}
             className="mx-auto mt-6 max-w-2xl text-slate-400 text-base sm:text-lg leading-relaxed font-normal"
           >
-            I'm Prasanta Gorai, a Computer Science student and aspiring
-            Full Stack Developer who enjoys building modern and interactive
-            web applications.
+            {profile.about_intro ||
+              "I'm Prasanta Gorai, a Computer Science student and aspiring Full Stack Developer who enjoys building modern and interactive web applications."}
           </motion.p>
         </div>
 
@@ -267,18 +286,25 @@ export const HomeAbout: React.FC = () => {
               </h3>
 
               <div className="space-y-5 text-slate-300/90 text-base sm:text-lg leading-relaxed font-normal">
-                <p>
-                  I enjoy learning how modern web applications work from frontend
-                  interfaces to backend systems and databases. My goal is to
-                  continuously improve my development skills and build useful,
-                  scalable and user-friendly applications.
-                </p>
-
-                <p>
-                  I'm currently focusing on strengthening my skills in React,
-                  TypeScript, backend development, databases and modern software
-                  development practices.
-                </p>
+                {profile.about_details ? (
+                  profile.about_details.split("\n\n").map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))
+                ) : (
+                  <>
+                    <p>
+                      I enjoy learning how modern web applications work from frontend
+                      interfaces to backend systems and databases. My goal is to
+                      continuously improve my development skills and build useful,
+                      scalable and user-friendly applications.
+                    </p>
+                    <p>
+                      I'm currently focusing on strengthening my skills in React,
+                      TypeScript, backend development, databases and modern software
+                      development practices.
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>

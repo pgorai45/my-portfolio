@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import {
   GraduationCap,
@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
+import { portfolioApi } from "../../services/api";
 
 // ─── Journey Milestones Data ────────────────────────────────────────────────
 interface Milestone {
@@ -146,6 +147,58 @@ const COLOR_CONFIG = {
 export const HomeExperience: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [milestones, setMilestones] = useState<Milestone[]>(MILESTONES);
+
+  useEffect(() => {
+    portfolioApi.getExperience().then((res) => {
+      if (res.success && res.data && res.data.length > 0) {
+        const iconMap: Record<string, React.FC<{ className?: string }>> = {
+          graduationcap: GraduationCap,
+          code2: Code2,
+          layers: Layers,
+          rocket: Rocket,
+          target: Target,
+          sparkles: Sparkles,
+        };
+        const defaultIcons = [GraduationCap, Code2, Layers, Rocket, Target];
+
+        const mapped: Milestone[] = res.data.map((item: any, idx: number) => {
+          let parsedTech: string[] = [];
+          if (Array.isArray(item.technologies)) {
+            parsedTech = item.technologies;
+          } else if (typeof item.technologies === "string") {
+            try {
+              parsedTech = JSON.parse(item.technologies);
+            } catch {
+              parsedTech = item.technologies.split(",").map((s: string) => s.trim()).filter(Boolean);
+            }
+          }
+
+          let period = item.start_date || "";
+          if (item.currently_working) {
+            period = item.start_date ? `${item.start_date}–Present` : "Current";
+          } else if (item.end_date && item.end_date !== item.start_date) {
+            period = `${item.start_date}–${item.end_date}`;
+          }
+
+          const iconKey = (item.icon_name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+          const IconComponent = iconMap[iconKey] || defaultIcons[idx % defaultIcons.length] || Layers;
+
+          return {
+            period: period || "Recent",
+            badge: item.badge || item.company,
+            title: item.position,
+            description: item.description,
+            skills: parsedTech,
+            icon: IconComponent,
+            accentColor: (item.accent_color as any) || (idx % 2 === 0 ? "purple" : "cyan"),
+            isCurrent: item.currently_working,
+          };
+        });
+        setMilestones(mapped);
+      }
+    });
+  }, []);
 
   // Scroll progress for drawing the vertical timeline line progressively
   const { scrollYProgress } = useScroll({
@@ -277,7 +330,7 @@ export const HomeExperience: React.FC = () => {
 
           {/* Milestones List */}
           <div className="space-y-12 md:space-y-16">
-            {MILESTONES.map((item, idx) => {
+            {milestones.map((item, idx) => {
               const isEven = idx % 2 === 0;
               const IconComp = item.icon;
               const config = COLOR_CONFIG[item.accentColor];

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, Shield } from "lucide-react";
 import { NAV_ITEMS } from "../../data/navigation";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          "pointer-events-auto w-full max-w-5xl rounded-full px-5 py-2.5 md:py-3",
+          "pointer-events-auto w-full max-w-6xl rounded-full px-5 py-2.5 md:py-3",
           "flex items-center justify-between",
           "transition-all duration-300",
           isScrolled
@@ -93,21 +93,36 @@ export const Navbar: React.FC = () => {
           })}
         </ul>
 
-        {/* Right: Enter Portfolio CTA Button */}
-        <div className="hidden md:flex items-center">
+        {/* Right: Actions (Enter Portfolio + Admin Login at the far right) */}
+        <div className="hidden md:flex items-center gap-2 lg:gap-2.5">
           <button
             onClick={handleEnterPortfolio}
             className={cn(
               "group relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-white",
               "bg-gradient-to-r from-indigo-950/70 to-purple-950/70 hover:from-indigo-900/90 hover:to-purple-900/90",
               "border border-purple-500/30 hover:border-purple-400/60 shadow-[0_0_15px_rgba(147,51,234,0.25)] hover:shadow-[0_0_20px_rgba(168,85,247,0.45)]",
-              "transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+              "transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 cursor-pointer"
             )}
             aria-label="Enter Portfolio"
           >
             <span>Enter Portfolio</span>
             <ArrowRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-1 transition-transform duration-200" />
           </button>
+
+          {/* Admin Login Button - Placed at far right */}
+          <Link
+            to="/admin/login"
+            className={cn(
+              "group relative flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-semibold",
+              "text-slate-300 hover:text-white bg-slate-900/80 hover:bg-purple-950/60",
+              "border border-white/10 hover:border-purple-500/40 shadow-sm hover:shadow-[0_0_16px_rgba(168,85,247,0.35)]",
+              "transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 cursor-pointer"
+            )}
+            aria-label="Admin Login"
+          >
+            <Shield className="w-3.5 h-3.5 text-purple-400 group-hover:text-purple-300 transition-colors" />
+            <span>Admin Login</span>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -153,13 +168,25 @@ export const Navbar: React.FC = () => {
               ))}
             </ul>
 
-            <button
-              onClick={handleEnterPortfolio}
-              className="w-full flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 shadow-[0_0_20px_rgba(147,51,234,0.4)]"
-            >
-              <span>Enter Portfolio</span>
-              <ArrowRight className="w-4 h-4 text-white" />
-            </button>
+            {/* Mobile Actions */}
+            <div className="flex flex-col gap-2 pt-2 border-t border-white/[0.08]">
+              <button
+                onClick={handleEnterPortfolio}
+                className="w-full flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 shadow-[0_0_20px_rgba(147,51,234,0.4)] cursor-pointer"
+              >
+                <span>Enter Portfolio</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </button>
+
+              <Link
+                to="/admin/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-semibold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-purple-950/60 border border-white/10 hover:border-purple-500/40 transition-all cursor-pointer"
+              >
+                <Shield className="w-4 h-4 text-purple-400" />
+                <span>Admin Login</span>
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

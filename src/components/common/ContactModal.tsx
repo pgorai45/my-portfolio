@@ -16,6 +16,7 @@ import {
   getMailtoFallbackLink,
   TARGET_EMAIL,
 } from "../../services/emailService";
+import { portfolioApi } from "../../services/api";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -157,21 +158,39 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     setIsConfigError(false);
 
     try {
-      const result = await sendContactMessage(formData);
-      if (result.success) {
+      let dbSuccess = false;
+      try {
+        const dbRes = await portfolioApi.submitContact({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          subject: "Portfolio Contact Form",
+        });
+        if (dbRes.success) dbSuccess = true;
+      } catch (dbErr) {
+        console.warn("DB save note:", dbErr);
+      }
+
+      let emailRes: { success: boolean; error?: string; isConfigurationError?: boolean } = { success: false };
+      try {
+        emailRes = await sendContactMessage(formData);
+      } catch (mailErr) {
+        console.warn("EmailJS note:", mailErr);
+      }
+
+      if (dbSuccess || emailRes.success) {
         setStatus("success");
-        // Clear form on success
         setFormData({ name: "", email: "", message: "" });
         setErrors({});
         setTouched({});
       } else {
         setStatus("error");
-        setErrorMessage(result.error || "An error occurred while sending your message.");
-        setIsConfigError(Boolean(result.isConfigurationError));
+        setErrorMessage(emailRes.error || "An error occurred while sending your message. Please try again.");
+        setIsConfigError(Boolean(emailRes.isConfigurationError));
       }
     } catch {
       setStatus("error");
-      setErrorMessage("Network error: Could not reach the email service. Please try again.");
+      setErrorMessage("Network error: Could not send your message. Please try again.");
     }
   };
 

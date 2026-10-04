@@ -14,7 +14,13 @@ const rateLimit = require("express-rate-limit");
 
 const app = express();
 app.disable("x-powered-by");
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: {
+      policy: "cross-origin",
+    },
+  })
+);
 
 const adminLoginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,

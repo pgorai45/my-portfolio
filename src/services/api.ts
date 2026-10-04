@@ -26,6 +26,9 @@ export function removeStoredToken(): void {
   localStorage.removeItem(TOKEN_KEY);
 }
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 // Base fetch helper with token and error handling
 async function request<T>(
   endpoint: string,
@@ -44,7 +47,7 @@ async function request<T>(
   }
 
   try {
-    const response = await fetch(endpoint, {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       ...options,
       headers,
     });

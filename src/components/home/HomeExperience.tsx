@@ -220,7 +220,7 @@ export const HomeExperience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="relative w-full py-24 px-6 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
+      className="relative w-full py-16 sm:py-24 px-3.5 sm:px-6 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
     >
       {/* 1. Minimal Ambient Background Grid with Radial Vignette */}
       <div
@@ -316,16 +316,16 @@ export const HomeExperience: React.FC = () => {
         {/* Timeline Container */}
         <div ref={containerRef} className="relative">
           {/* Static Background Timeline Rail */}
-          <div className="absolute top-6 bottom-6 left-6 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-purple-500/20 via-indigo-500/30 to-purple-500/20 rounded-full pointer-events-none" />
+          <div className="absolute top-6 bottom-6 left-4 sm:left-6 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-purple-500/20 via-indigo-500/30 to-purple-500/20 rounded-full pointer-events-none" />
 
           {/* Dynamic Scroll-Animated Progressive Timeline Line */}
           {!prefersReducedMotion ? (
             <motion.div
               style={{ scaleY: progressScaleY, transformOrigin: "top" }}
-              className="absolute top-6 bottom-6 left-6 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-purple-400 via-indigo-400 via-cyan-400 to-emerald-400 shadow-[0_0_12px_rgba(168,85,247,0.7)] rounded-full pointer-events-none"
+              className="absolute top-6 bottom-6 left-4 sm:left-6 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-purple-400 via-indigo-400 via-cyan-400 to-emerald-400 shadow-[0_0_12px_rgba(168,85,247,0.7)] rounded-full pointer-events-none"
             />
           ) : (
-            <div className="absolute top-6 bottom-6 left-6 md:left-1/2 -translate-x-1/2 w-[2px] bg-purple-500/40 rounded-full pointer-events-none" />
+            <div className="absolute top-6 bottom-6 left-4 sm:left-6 md:left-1/2 -translate-x-1/2 w-[2px] bg-purple-500/40 rounded-full pointer-events-none" />
           )}
 
           {/* Milestones List */}
@@ -382,7 +382,7 @@ export const HomeExperience: React.FC = () => {
                               }
                         }
                         className={cn(
-                          "group relative ml-14 md:ml-0 rounded-2xl p-6 md:p-7 overflow-hidden cursor-default",
+                          "group relative ml-9 sm:ml-14 md:ml-0 rounded-2xl p-4 sm:p-6 md:p-7 overflow-hidden cursor-default",
                           "bg-slate-900/60 backdrop-blur-xl border border-white/[0.08]",
                           "transition-all duration-300 shadow-xl shadow-black/40",
                           config.hoverBorder,
@@ -399,10 +399,10 @@ export const HomeExperience: React.FC = () => {
                         />
 
                         {/* Card Header: Year/Period Badge + Milestone Name */}
-                        <div className="relative z-10 flex items-center justify-between gap-3 mb-3">
+                        <div className="relative z-10 flex items-center justify-between gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
                           <span
                             className={cn(
-                              "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider font-mono border",
+                              "inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold tracking-wider font-mono border",
                               config.badgeBg
                             )}
                           >
@@ -412,7 +412,7 @@ export const HomeExperience: React.FC = () => {
                           </span>
 
                           {item.isCurrent && (
-                            <span className="relative flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                            <span className="relative flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 px-2 sm:px-2.5 py-0.5 rounded-full border border-emerald-500/30">
                               <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -423,21 +423,21 @@ export const HomeExperience: React.FC = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="relative z-10 text-lg sm:text-xl font-bold text-white mb-2.5 group-hover:text-purple-200 transition-colors">
+                        <h3 className="relative z-10 text-base sm:text-lg md:text-xl font-bold text-white mb-2 sm:mb-2.5 group-hover:text-purple-200 transition-colors">
                           {item.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="relative z-10 text-sm sm:text-base text-slate-300/90 leading-relaxed font-normal mb-5">
+                        <p className="relative z-10 text-xs sm:text-sm md:text-base text-slate-300/90 leading-relaxed font-normal mb-4 sm:mb-5">
                           {item.description}
                         </p>
 
                         {/* Skills / Tech Tags */}
-                        <div className="relative z-10 flex flex-wrap gap-2 pt-3 border-t border-white/[0.06]">
+                        <div className="relative z-10 flex flex-wrap gap-1.5 sm:gap-2 pt-2.5 sm:pt-3 border-t border-white/[0.06]">
                           {item.skills.map((skill) => (
                             <span
                               key={skill}
-                              className="text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 group-hover:border-purple-500/20 hover:!border-purple-400/50 hover:!text-white hover:!bg-purple-950/40 transition-all duration-200 cursor-default"
+                              className="text-[11px] sm:text-xs font-mono font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 group-hover:border-purple-500/20 hover:!border-purple-400/50 hover:!text-white hover:!bg-purple-950/40 transition-all duration-200 cursor-default"
                             >
                               {skill}
                             </span>
@@ -448,7 +448,7 @@ export const HomeExperience: React.FC = () => {
                   </div>
 
                   {/* Center Timeline Node Marker */}
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+                  <div className="absolute left-4 sm:left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
                     <motion.div
                       initial={{ scale: prefersReducedMotion ? 1 : 0.7, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
@@ -463,13 +463,13 @@ export const HomeExperience: React.FC = () => {
 
                       <div
                         className={cn(
-                          "w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border z-10 transition-transform duration-300 shadow-md",
+                          "w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border z-10 transition-transform duration-300 shadow-md",
                           config.nodeBg,
                           config.nodeBorder,
                           config.nodeGlow
                         )}
                       >
-                        <IconComp className={cn("w-4 h-4 md:w-5 md:h-5", config.iconColor)} />
+                        <IconComp className={cn("w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5", config.iconColor)} />
                       </div>
                     </motion.div>
                   </div>
@@ -497,7 +497,7 @@ export const HomeExperience: React.FC = () => {
                               }
                         }
                         className={cn(
-                          "group relative ml-14 md:ml-0 rounded-2xl p-6 md:p-7 overflow-hidden cursor-default",
+                          "group relative ml-9 sm:ml-14 md:ml-0 rounded-2xl p-4 sm:p-6 md:p-7 overflow-hidden cursor-default",
                           "bg-slate-900/60 backdrop-blur-xl border border-white/[0.08]",
                           "transition-all duration-300 shadow-xl shadow-black/40",
                           config.hoverBorder,
@@ -514,10 +514,10 @@ export const HomeExperience: React.FC = () => {
                         />
 
                         {/* Card Header: Year/Period Badge + Milestone Name */}
-                        <div className="relative z-10 flex items-center justify-between gap-3 mb-3">
+                        <div className="relative z-10 flex items-center justify-between gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
                           <span
                             className={cn(
-                              "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider font-mono border",
+                              "inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold tracking-wider font-mono border",
                               config.badgeBg
                             )}
                           >
@@ -527,7 +527,7 @@ export const HomeExperience: React.FC = () => {
                           </span>
 
                           {item.isCurrent && (
-                            <span className="relative flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                            <span className="relative flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 px-2 sm:px-2.5 py-0.5 rounded-full border border-emerald-500/30">
                               <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -538,21 +538,21 @@ export const HomeExperience: React.FC = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="relative z-10 text-lg sm:text-xl font-bold text-white mb-2.5 group-hover:text-purple-200 transition-colors">
+                        <h3 className="relative z-10 text-base sm:text-lg md:text-xl font-bold text-white mb-2 sm:mb-2.5 group-hover:text-purple-200 transition-colors">
                           {item.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="relative z-10 text-sm sm:text-base text-slate-300/90 leading-relaxed font-normal mb-5">
+                        <p className="relative z-10 text-xs sm:text-sm md:text-base text-slate-300/90 leading-relaxed font-normal mb-4 sm:mb-5">
                           {item.description}
                         </p>
 
                         {/* Skills / Tech Tags */}
-                        <div className="relative z-10 flex flex-wrap gap-2 pt-3 border-t border-white/[0.06]">
+                        <div className="relative z-10 flex flex-wrap gap-1.5 sm:gap-2 pt-2.5 sm:pt-3 border-t border-white/[0.06]">
                           {item.skills.map((skill) => (
                             <span
                               key={skill}
-                              className="text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 group-hover:border-purple-500/20 hover:!border-purple-400/50 hover:!text-white hover:!bg-purple-950/40 transition-all duration-200 cursor-default"
+                              className="text-[11px] sm:text-xs font-mono font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 group-hover:border-purple-500/20 hover:!border-purple-400/50 hover:!text-white hover:!bg-purple-950/40 transition-all duration-200 cursor-default"
                             >
                               {skill}
                             </span>

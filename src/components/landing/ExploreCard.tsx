@@ -47,7 +47,7 @@ export const ExploreCard: React.FC<ExploreCardProps> = ({ card, index }) => {
         to={`/home#${card.targetId}`}
         aria-label={`Explore ${card.title}`}
         className={cn(
-          "group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl h-full",
+          "group relative flex flex-col justify-between p-5 sm:p-6 md:p-7 rounded-2xl h-full",
           "bg-[#0a0f24]/75 backdrop-blur-xl border border-white/[0.08]",
           "transition-all duration-300 shadow-xl shadow-black/50 select-none block",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400",
@@ -62,7 +62,7 @@ export const ExploreCard: React.FC<ExploreCardProps> = ({ card, index }) => {
 
         <div>
           {/* Top Row: Icon Badge + Arrow */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
             <div
               className={cn(
                 "w-12 h-12 rounded-xl flex items-center justify-center",

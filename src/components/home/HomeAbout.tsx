@@ -124,7 +124,7 @@ export const HomeAbout: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative w-full py-24 px-6 md:px-10 lg:px-16 overflow-hidden select-none scroll-mt-20"
+      className="relative w-full py-16 sm:py-24 px-4 sm:px-8 md:px-10 lg:px-16 overflow-hidden select-none scroll-mt-20"
     >
       {/* 1. Subtle Animated Background Minimal Grid */}
       <div
@@ -273,19 +273,19 @@ export const HomeAbout: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* Left Side: Who I Am */}
           <motion.div variants={itemFadeUp} className="relative">
-            <div className="relative rounded-3xl p-7 sm:p-9 bg-slate-900/50 backdrop-blur-xl border border-white/[0.08] shadow-xl shadow-black/40 group overflow-hidden">
+            <div className="relative rounded-3xl p-5 sm:p-7 md:p-9 bg-slate-900/50 backdrop-blur-xl border border-white/[0.08] shadow-xl shadow-black/40 group overflow-hidden">
               {/* Top subtle specular highlight */}
               <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent pointer-events-none" />
 
               {/* Ambient purple corner glow */}
               <div className="absolute -top-10 -right-10 w-36 h-36 bg-purple-600/10 rounded-full blur-2xl pointer-events-none group-hover:bg-purple-600/15 transition-colors duration-500" />
 
-              <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-6 flex items-center gap-3">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-4 sm:mb-6 flex items-center gap-3">
                 <span>Who I Am</span>
                 <span className="h-[1px] flex-1 max-w-[80px] bg-gradient-to-r from-purple-500/60 to-transparent" />
               </h3>
 
-              <div className="space-y-5 text-slate-300/90 text-base sm:text-lg leading-relaxed font-normal">
+              <div className="space-y-4 sm:space-y-5 text-slate-300/90 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
                 {profile.about_details ? (
                   profile.about_details.split("\n\n").map((para, i) => (
                     <p key={i}>{para}</p>
@@ -314,12 +314,12 @@ export const HomeAbout: React.FC = () => {
             {/* The Connected Pipeline Track Container */}
             <div className="relative">
               {/* Vertical Gradient Connecting Line */}
-              <div className="absolute left-[15px] sm:left-[19px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-purple-500/40 via-cyan-500/40 to-blue-500/40 rounded-full pointer-events-none" />
+              <div className="absolute left-[13px] sm:left-[17px] md:left-[19px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-purple-500/40 via-cyan-500/40 to-blue-500/40 rounded-full pointer-events-none" />
 
               {/* Animated Light Pulse traveling down the line */}
               {!prefersReducedMotion && (
                 <motion.div
-                  className="absolute left-[14px] sm:left-[18px] w-[4px] h-20 rounded-full bg-gradient-to-b from-transparent via-purple-300 via-cyan-200 to-transparent blur-[0.5px] shadow-[0_0_12px_rgba(168,85,247,0.8)] pointer-events-none"
+                  className="absolute left-[12px] sm:left-[16px] md:left-[18px] w-[4px] h-20 rounded-full bg-gradient-to-b from-transparent via-purple-300 via-cyan-200 to-transparent blur-[0.5px] shadow-[0_0_12px_rgba(168,85,247,0.8)] pointer-events-none"
                   animate={{
                     top: ["5%", "85%"],
                     opacity: [0, 1, 1, 0],
@@ -333,23 +333,23 @@ export const HomeAbout: React.FC = () => {
               )}
 
               {/* Staggered Cards List */}
-              <div className="space-y-5 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {cards.map((card) => (
                   <div
                     key={card.title}
-                    className="relative flex items-center gap-4 sm:gap-5"
+                    className="relative flex items-center gap-3 sm:gap-4 md:gap-5"
                   >
                     {/* Glowing Node on the Vertical Line */}
                     <div className="relative z-20 shrink-0">
                       <div
                         className={cn(
-                          "w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border transition-all duration-300 shadow-md",
+                          "w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl flex items-center justify-center border transition-all duration-300 shadow-md",
                           card.nodeBg,
                           card.nodeBorder,
                           card.nodeGlow
                         )}
                       >
-                        <card.icon className={cn("w-4 h-4 sm:w-4.5 sm:h-4.5", card.iconColor)} />
+                        <card.icon className={cn("w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-4.5 md:h-4.5", card.iconColor)} />
                       </div>
                     </div>
 
@@ -378,7 +378,7 @@ export const HomeAbout: React.FC = () => {
                             }
                       }
                       className={cn(
-                        "group flex-1 relative rounded-2xl p-5 sm:p-6 overflow-hidden cursor-default",
+                        "group flex-1 relative rounded-2xl p-4 sm:p-5 md:p-6 overflow-hidden cursor-default",
                         "bg-slate-900/60 backdrop-blur-xl border border-white/[0.08]",
                         "transition-all duration-300 shadow-lg shadow-black/40",
                         card.hoverBorder,
@@ -396,13 +396,13 @@ export const HomeAbout: React.FC = () => {
                         )}
                       />
 
-                      <div className="relative z-10 flex items-start justify-between gap-4">
+                      <div className="relative z-10 flex items-start justify-between gap-3 sm:gap-4">
                         <div>
-                          <h4 className={cn("font-semibold text-base sm:text-lg tracking-wide", card.titleColor)}>
+                          <h4 className={cn("font-semibold text-sm sm:text-base md:text-lg tracking-wide", card.titleColor)}>
                             {card.title}
                           </h4>
 
-                          <p className="mt-2 text-sm sm:text-base text-slate-300/90 leading-relaxed font-normal">
+                          <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm md:text-base text-slate-300/90 leading-relaxed font-normal">
                             {card.description}
                           </p>
                         </div>
@@ -410,11 +410,11 @@ export const HomeAbout: React.FC = () => {
                         {/* Subtle Card Badge */}
                         <div
                           className={cn(
-                            "p-2 rounded-xl border shrink-0 transition-transform duration-300 group-hover:scale-110",
+                            "p-1.5 sm:p-2 rounded-xl border shrink-0 transition-transform duration-300 group-hover:scale-110",
                             card.badgeStyle
                           )}
                         >
-                          <card.icon className={cn("w-4 h-4", card.iconColor)} />
+                          <card.icon className={cn("w-3.5 h-3.5 sm:w-4 sm:h-4", card.iconColor)} />
                         </div>
                       </div>
                     </motion.div>

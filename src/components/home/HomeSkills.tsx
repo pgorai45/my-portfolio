@@ -667,7 +667,7 @@ export const HomeSkills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="relative w-full py-24 px-6 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
+      className="relative w-full py-16 sm:py-24 px-4 sm:px-8 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
     >
       {/* 1. Minimal Subtle Ambient Background Grid with Radial Vignette */}
       <div
@@ -770,7 +770,7 @@ export const HomeSkills: React.FC = () => {
           {/* Category Filter Tabs: Frontend, Backend, Core CS, Database, Tools, Languages */}
           <motion.div
             variants={itemFadeUp}
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-10"
+            className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3 mt-8 sm:mt-10"
           >
             {dynamicCategoryTabs.map((tab) => {
               const TabIcon = tab.icon;
@@ -780,7 +780,7 @@ export const HomeSkills: React.FC = () => {
                   key={tab.id}
                   onClick={() => setSelectedCategory(tab.id)}
                   className={cn(
-                    "relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400",
+                    "relative inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-[11px] sm:text-sm font-medium transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400",
                     isActive
                       ? "text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 shadow-[0_0_20px_rgba(147,51,234,0.4)] border border-purple-400/40"
                       : "text-slate-400 hover:text-white bg-slate-900/60 hover:bg-slate-800/60 border border-white/[0.08]"
@@ -790,7 +790,7 @@ export const HomeSkills: React.FC = () => {
                   <span>{tab.label}</span>
                   <span
                     className={cn(
-                      "text-[10px] font-mono px-1.5 py-0.5 rounded-full font-semibold",
+                      "text-[9px] sm:text-[10px] font-mono px-1 sm:px-1.5 py-0.5 rounded-full font-semibold",
                       isActive
                         ? "bg-purple-950/60 text-purple-200 border border-purple-400/30"
                         : "bg-white/5 text-slate-500"
@@ -833,7 +833,7 @@ export const HomeSkills: React.FC = () => {
                           transition: { duration: 0.25, ease: "easeOut" },
                         }
                   }
-                  className="group relative rounded-2xl p-5 sm:p-6 overflow-hidden cursor-default bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] hover:border-purple-400/40 hover:shadow-[0_12px_35px_-8px_rgba(147,51,234,0.3)] transition-all duration-300 shadow-md shadow-black/30 flex flex-col justify-between"
+                  className="group relative rounded-2xl p-4 sm:p-5 md:p-6 overflow-hidden cursor-default bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] hover:border-purple-400/40 hover:shadow-[0_12px_35px_-8px_rgba(147,51,234,0.3)] transition-all duration-300 shadow-md shadow-black/30 flex flex-col justify-between"
                 >
                   {/* Top Specular Shine */}
                   <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
@@ -863,7 +863,7 @@ export const HomeSkills: React.FC = () => {
                         ease: "easeInOut",
                       }}
                       className={cn(
-                        "p-3 rounded-xl bg-slate-950/80 border transition-all duration-300 group-hover:scale-110",
+                        "p-2.5 sm:p-3 rounded-xl bg-slate-950/80 border transition-all duration-300 group-hover:scale-110",
                         skill.badgeBorder,
                         "shadow-md group-hover:shadow-[0_0_18px_rgba(255,255,255,0.15)]"
                       )}
@@ -872,9 +872,9 @@ export const HomeSkills: React.FC = () => {
                       }}
                     >
                       {IconComp ? (
-                        <IconComp className="w-6 h-6 sm:w-7 sm:h-7" />
+                        <IconComp className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                       ) : (
-                        <Cpu className="w-6 h-6 text-purple-400" />
+                        <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
                       )}
                     </motion.div>
 
@@ -887,10 +887,10 @@ export const HomeSkills: React.FC = () => {
                   {/* Card Middle: Technology Name + Optional Subtitle + Animated Percentage Counter */}
                   <div className="relative z-10 mb-4">
                     <div className="flex items-center justify-between gap-2">
-                      <h4 className="text-white font-semibold text-base sm:text-lg tracking-wide group-hover:text-purple-200 transition-colors">
+                      <h4 className="text-white font-semibold text-sm sm:text-base md:text-lg tracking-wide group-hover:text-purple-200 transition-colors">
                         {skill.name}
                       </h4>
-                      <span className="text-sm font-bold font-mono text-cyan-300 bg-cyan-950/40 px-2 py-0.5 rounded-md border border-cyan-500/20">
+                      <span className="text-xs sm:text-sm font-bold font-mono text-cyan-300 bg-cyan-950/40 px-1.5 sm:px-2 py-0.5 rounded-md border border-cyan-500/20">
                         <AnimatedCounter value={skill.percentage} inView={inView} />
                       </span>
                     </div>
@@ -958,7 +958,7 @@ export const HomeSkills: React.FC = () => {
                         transition: { duration: 0.2 },
                       }
                 }
-                className="group relative rounded-xl p-4 bg-slate-900/40 backdrop-blur-md border border-white/[0.06] hover:border-cyan-500/30 transition-all duration-300"
+                className="group relative rounded-xl p-3.5 sm:p-4 bg-slate-900/40 backdrop-blur-md border border-white/[0.06] hover:border-cyan-500/30 transition-all duration-300"
               >
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <h5 className="font-semibold text-sm text-white group-hover:text-cyan-300 transition-colors">

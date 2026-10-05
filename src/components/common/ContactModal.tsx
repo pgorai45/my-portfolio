@@ -225,7 +225,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
           {/* Modal Backdrop with Blur */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -256,7 +256,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               stiffness: 350,
               duration: 0.3,
             }}
-            className="relative z-10 w-full max-w-lg rounded-3xl bg-[#0a0f24]/95 border border-purple-500/30 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_-5px_rgba(168,85,247,0.25)] p-6 sm:p-8 backdrop-blur-xl overflow-hidden my-auto"
+            className="relative z-10 w-full max-w-lg rounded-3xl bg-[#0a0f24]/95 border border-purple-500/30 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_-5px_rgba(168,85,247,0.25)] p-5 sm:p-8 backdrop-blur-xl overflow-hidden my-auto max-h-[92dvh] overflow-y-auto custom-scrollbar"
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"

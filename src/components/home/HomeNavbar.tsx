@@ -62,13 +62,13 @@ export const HomeNavbar: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 py-3.5 md:py-5 transition-all duration-300 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 py-3 md:py-5 transition-all duration-300 pointer-events-none">
       <motion.nav
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "pointer-events-auto w-full max-w-6xl rounded-full px-5 py-2.5 md:py-3",
+          "pointer-events-auto w-full max-w-6xl rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 md:py-3",
           "flex items-center justify-between",
           "transition-all duration-300",
           isScrolled
@@ -85,7 +85,7 @@ export const HomeNavbar: React.FC = () => {
             title="Return to Landing Page"
             aria-label="Back to Landing Page"
           >
-            <span className="text-xl md:text-2xl font-black tracking-tight text-white group-hover:text-purple-300 transition-colors">
+            <span className="text-lg sm:text-xl md:text-2xl font-black tracking-tight text-white group-hover:text-purple-300 transition-colors">
               PG<span className="text-purple-400 inline-block group-hover:scale-125 transition-transform duration-300">.</span>
             </span>
           </Link>
@@ -173,7 +173,7 @@ export const HomeNavbar: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -15, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="pointer-events-auto absolute top-20 left-4 right-4 lg:hidden rounded-2xl bg-[#090d24]/95 backdrop-blur-2xl border border-white/10 p-5 shadow-2xl shadow-black/80"
+            className="pointer-events-auto absolute top-16 sm:top-20 left-3 right-3 sm:left-4 sm:right-4 max-h-[82vh] overflow-y-auto lg:hidden rounded-2xl bg-[#090d24]/95 backdrop-blur-2xl border border-white/10 p-4 sm:p-5 shadow-2xl shadow-black/80 custom-scrollbar"
           >
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.08]">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">

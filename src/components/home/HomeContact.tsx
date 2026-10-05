@@ -252,7 +252,7 @@ export const HomeContact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative w-full py-28 md:py-36 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden bg-[#020617] select-none scroll-mt-20"
+      className="relative w-full py-16 sm:py-24 md:py-36 px-3.5 sm:px-6 md:px-10 lg:px-16 overflow-hidden bg-[#020617] select-none scroll-mt-20"
     >
       {/* ─── 1. Background Grid & Ambient Neon Waves ───────────────────────── */}
       <div
@@ -334,7 +334,7 @@ export const HomeContact: React.FC = () => {
       <div className="absolute bottom-1/4 left-1/4 w-2 h-2 rounded-full bg-purple-300 blur-[1px] shadow-[0_0_12px_#c084fc] pointer-events-none" />
 
       {/* ─── 2. Section Header ────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto max-w-4xl text-center mb-12 sm:mb-16">
+      <div className="relative z-10 mx-auto max-w-4xl text-center mb-10 sm:mb-16">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -343,15 +343,15 @@ export const HomeContact: React.FC = () => {
           className="flex flex-col items-center"
         >
           {/* Top Pill Badge */}
-          <div className="inline-block mb-4">
-            <span className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-purple-300 bg-purple-950/40 border border-purple-500/40 px-5 py-1.5 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.25)] backdrop-blur-md">
-              <Send className="w-3.5 h-3.5 text-purple-400" />
+          <div className="inline-block mb-3 sm:mb-4">
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-purple-300 bg-purple-950/40 border border-purple-500/40 px-3.5 sm:px-5 py-1 sm:py-1.5 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.25)] backdrop-blur-md">
+              <Send className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-purple-400" />
               GET IN TOUCH
             </span>
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Let&apos;s Build{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-indigo-400 to-cyan-400 glow-text-purple inline-block">
               Something Great
@@ -359,7 +359,7 @@ export const HomeContact: React.FC = () => {
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-4 max-w-2xl text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
+          <p className="mt-3 sm:mt-4 max-w-2xl text-slate-400 text-xs min-[360px]:text-sm sm:text-base md:text-lg leading-relaxed font-normal px-2">
             Have an opportunity or project in mind? Reach out and let&apos;s start a conversation.
           </p>
         </motion.div>
@@ -371,14 +371,14 @@ export const HomeContact: React.FC = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={itemFadeUp}
-        className="relative z-10 mx-auto max-w-4xl rounded-3xl bg-[#080d1a]/95 backdrop-blur-2xl border border-white/[0.08] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(99,102,241,0.12)] overflow-hidden"
+        className="relative z-10 mx-auto max-w-4xl rounded-2xl sm:rounded-3xl bg-[#080d1a]/95 backdrop-blur-2xl border border-white/[0.08] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(99,102,241,0.12)] overflow-hidden"
       >
         {/* Top Banner Area with Developer Code Background */}
-        <div className="relative w-full h-44 sm:h-52 bg-slate-950 overflow-hidden flex flex-col items-center justify-center border-b border-white/[0.06]">
+        <div className="relative w-full h-36 min-[380px]:h-40 sm:h-48 md:h-52 bg-slate-950 overflow-hidden flex flex-col items-center justify-center border-b border-white/[0.06]">
           {/* Stylized IDE Code Graphic in background */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 opacity-90 select-none pointer-events-none font-mono text-[11px] sm:text-xs leading-relaxed text-emerald-400/80 p-4 overflow-hidden blur-[0.5px]"
+            className="absolute inset-0 opacity-90 select-none pointer-events-none font-mono text-[9px] min-[380px]:text-[11px] sm:text-xs leading-relaxed text-emerald-400/80 p-3 sm:p-4 overflow-hidden blur-[0.5px]"
           >
             <p className="text-purple-400/70">
               import &#123; createConnection &#125; from &quot;@developer/portfolio&quot;;
@@ -404,21 +404,21 @@ export const HomeContact: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/80 to-[#080d1a]" />
 
           {/* Banner Center Text */}
-          <div className="relative z-10 text-center px-4 -mt-2">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-[0.22em] uppercase font-mono drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
+          <div className="relative z-10 text-center px-3 sm:px-4 -mt-2">
+            <h3 className="text-lg min-[360px]:text-xl min-[420px]:text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-[0.12em] min-[360px]:tracking-[0.18em] sm:tracking-[0.22em] uppercase font-mono drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] truncate max-w-full">
               PRASANTA GORAI
             </h3>
-            <p className="mt-1.5 text-[11px] sm:text-xs md:text-sm font-semibold text-slate-300 tracking-[0.38em] uppercase font-mono">
+            <p className="mt-1 sm:mt-1.5 text-[9px] min-[360px]:text-[10px] min-[420px]:text-xs sm:text-xs md:text-sm font-semibold text-slate-300 tracking-[0.2em] min-[360px]:tracking-[0.28em] sm:tracking-[0.38em] uppercase font-mono">
               FULL STACK DEVELOPER
             </p>
           </div>
         </div>
 
         {/* Profile Details & Avatar Area */}
-        <div className="relative px-6 sm:px-10 pb-6 text-center -mt-12 sm:-mt-14 z-20">
+        <div className="relative px-3.5 sm:px-6 md:px-10 pb-5 sm:pb-6 text-center -mt-9 sm:-mt-14 z-20">
           {/* Avatar Picture */}
           <div className="inline-block relative">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-700/80 shadow-[0_10px_25px_rgba(0,0,0,0.8),0_0_20px_rgba(168,85,247,0.3)] bg-slate-900 mx-auto">
+            <div className="w-16 h-16 min-[380px]:w-20 min-[380px]:h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-700/80 shadow-[0_10px_25px_rgba(0,0,0,0.8),0_0_20px_rgba(168,85,247,0.3)] bg-slate-900 mx-auto">
               <img
                 src={prasantaPhoto}
                 alt="Prasanta Gorai"
@@ -428,77 +428,77 @@ export const HomeContact: React.FC = () => {
           </div>
 
           {/* Profile Name & Explanatory Text */}
-          <h4 className="mt-3 text-xl sm:text-2xl font-bold text-white tracking-tight">
+          <h4 className="mt-2.5 sm:mt-3 text-lg sm:text-2xl font-bold text-white tracking-tight">
             Prasanta Gorai
           </h4>
-          <p className="mt-1.5 text-xs sm:text-sm text-slate-400 max-w-lg mx-auto leading-relaxed">
+          <p className="mt-1 sm:mt-1.5 text-[11px] sm:text-xs md:text-sm text-slate-400 max-w-lg mx-auto leading-relaxed px-2">
             Select an available date and time slot below to schedule your appointment. You can confirm instantly via WhatsApp.
           </p>
 
           {/* Timezone & Verification Chips */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs">
+          <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[11px] sm:text-xs">
             <div className="inline-flex items-center gap-1.5 text-slate-400">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
+              <Clock className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-slate-400" />
               <span>Times in GMT+5:30</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 text-[11px] font-semibold tracking-wider uppercase shadow-[0_0_12px_rgba(16,185,129,0.15)]">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase shadow-[0_0_12px_rgba(16,185,129,0.15)]">
+              <ShieldCheck className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-emerald-400" />
               <span>BOOKCLIPY VERIFIED CHECKOUT</span>
             </div>
           </div>
         </div>
 
         {/* ─── 4. Booking Interface (Two Column Layout) ────────────────────── */}
-        <div className="p-4 sm:p-6 md:p-8 pt-2 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 border-t border-white/[0.06]">
+        <div className="p-3 min-[380px]:p-4 sm:p-6 md:p-8 pt-2 grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 border-t border-white/[0.06]">
           {/* Left Column: 1. Choose Booking Date */}
-          <div className="rounded-2xl p-5 sm:p-6 bg-slate-950/70 border border-white/[0.06] flex flex-col justify-between">
+          <div className="rounded-xl sm:rounded-2xl p-3 min-[380px]:p-4 sm:p-6 bg-slate-950/70 border border-white/[0.06] flex flex-col justify-between">
             <div>
               {/* Calendar Header */}
-              <div className="flex items-center justify-between gap-2 mb-6">
-                <span className="text-sm sm:text-base font-bold text-white tracking-wide">
-                  1. Choose Booking Date
+              <div className="flex items-center justify-between gap-1.5 sm:gap-2 mb-4 sm:mb-6">
+                <span className="text-xs min-[380px]:text-sm sm:text-base font-bold text-white tracking-wide">
+                  1. Choose Date
                 </span>
 
-                <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <button
                     type="button"
                     onClick={handlePrevMonth}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="p-1 sm:p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                     aria-label="Previous Month"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                   </button>
 
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200 min-w-[110px] text-center">
+                  <span className="text-[11px] min-[380px]:text-xs sm:text-sm font-semibold text-slate-200 min-w-[85px] sm:min-w-[110px] text-center">
                     {MONTH_NAMES[month]} {year}
                   </span>
 
                   <button
                     type="button"
                     onClick={handleNextMonth}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="p-1 sm:p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                     aria-label="Next Month"
                   >
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                   </button>
                 </div>
               </div>
 
               {/* Weekday Row */}
-              <div className="grid grid-cols-7 gap-1 text-center mb-2">
+              <div className="grid grid-cols-7 gap-0.5 sm:gap-1 text-center mb-1.5 sm:mb-2">
                 {WEEKDAYS.map((wd) => (
-                  <span key={wd} className="text-[11px] font-semibold text-slate-500 py-1">
+                  <span key={wd} className="text-[10px] sm:text-[11px] font-semibold text-slate-500 py-0.5 sm:py-1">
                     {wd}
                   </span>
                 ))}
               </div>
 
               {/* Days Grid */}
-              <div className="grid grid-cols-7 gap-1 text-center">
+              <div className="grid grid-cols-7 gap-0.5 sm:gap-1 text-center">
                 {/* Empty padding days before day 1 */}
                 {Array.from({ length: firstDayOfWeek }).map((_, idx) => (
-                  <div key={`empty-${idx}`} className="h-9 sm:h-10" />
+                  <div key={`empty-${idx}`} className="h-8 min-[380px]:h-9 sm:h-10" />
                 ))}
 
                 {/* Actual month days */}
@@ -513,9 +513,9 @@ export const HomeContact: React.FC = () => {
                       type="button"
                       disabled={past}
                       onClick={() => handleDateClick(day)}
-                      className={`h-9 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium transition-all duration-200 relative ${
+                      className={`h-8 min-[380px]:h-9 sm:h-10 rounded-full flex items-center justify-center text-[11px] min-[380px]:text-xs sm:text-sm font-medium transition-all duration-200 relative ${
                         past
-                          ? "text-slate-600 cursor-not-allowed opacity-5"
+                          ? "text-slate-600 cursor-not-allowed opacity-15"
                           : selected
                           ? "bg-gradient-to-tr from-purple-600 via-indigo-600 to-purple-600 text-white font-bold shadow-[0_0_20px_rgba(168,85,247,0.7)] scale-105 z-10"
                           : "text-slate-300 hover:bg-purple-950/60 hover:text-white cursor-pointer"
@@ -530,27 +530,27 @@ export const HomeContact: React.FC = () => {
             </div>
 
             {/* Calendar Bottom Bar */}
-            <div className="pt-6 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-slate-400">
+            <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-white/[0.06] flex flex-wrap sm:flex-nowrap items-center justify-between gap-1.5 text-[10px] sm:text-[11px] text-slate-400">
               <div className="flex items-center gap-1.5 text-amber-400 font-medium">
-                <Zap className="w-3.5 h-3.5 fill-amber-400" />
+                <Zap className="w-3 sm:w-3.5 h-3 sm:h-3.5 fill-amber-400" />
                 <span>Slot duration: 15m</span>
               </div>
-              <span className="text-slate-400 font-mono text-[11px]">
+              <span className="text-slate-400 font-mono text-[10px] sm:text-[11px]">
                 Hours: 9:00 AM - 8:00 PM
               </span>
             </div>
           </div>
 
           {/* Right Column: 2. Select Hour Slot */}
-          <div className="rounded-2xl p-5 sm:p-6 bg-slate-950/70 border border-white/[0.06] flex flex-col justify-between">
+          <div className="rounded-xl sm:rounded-2xl p-3 min-[380px]:p-4 sm:p-6 bg-slate-950/70 border border-white/[0.06] flex flex-col justify-between">
             <div>
               {/* Slot Header */}
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/[0.06]">
-                <span className="text-sm sm:text-base font-bold text-white tracking-wide">
+              <div className="flex items-center justify-between mb-3.5 sm:mb-4 pb-2.5 sm:pb-3 border-b border-white/[0.06]">
+                <span className="text-xs min-[380px]:text-sm sm:text-base font-bold text-white tracking-wide">
                   2. Select Hour Slot
                 </span>
                 {selectedDate && (
-                  <span className="text-xs font-semibold text-purple-300 bg-purple-950/50 px-2.5 py-1 rounded-full border border-purple-500/30">
+                  <span className="text-[10px] sm:text-xs font-semibold text-purple-300 bg-purple-950/50 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-purple-500/30 truncate max-w-[140px] sm:max-w-none">
                     {formattedSelectedDate}
                   </span>
                 )}
@@ -559,18 +559,18 @@ export const HomeContact: React.FC = () => {
               {/* Slots Content Area */}
               {!selectedDate ? (
                 // Empty state when no date is picked
-                <div className="py-12 sm:py-16 flex flex-col items-center justify-center text-center px-4">
-                  <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-slate-500 mb-3 bg-slate-900/50">
-                    <Clock className="w-7 h-7 stroke-[1.5]" />
+                <div className="py-10 sm:py-16 flex flex-col items-center justify-center text-center px-3">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/10 flex items-center justify-center text-slate-500 mb-2.5 sm:mb-3 bg-slate-900/50">
+                    <Clock className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.5]" />
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-400 max-w-[220px] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs md:text-sm text-slate-400 max-w-[220px] leading-relaxed">
                     Please pick a day from the calendar to generate operating slots.
                   </p>
                 </div>
               ) : (
                 // Available Time Slots Grid
                 <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-2 sm:gap-2.5 max-h-[220px] sm:max-h-[240px] overflow-y-auto pr-1">
+                  <div className="grid grid-cols-2 gap-1.5 min-[380px]:gap-2 sm:gap-2.5 max-h-[200px] sm:max-h-[240px] overflow-y-auto pr-1 custom-scrollbar">
                     {TIME_SLOTS.map((slot) => {
                       const isSelected = selectedSlot === slot;
                       return (
@@ -578,13 +578,13 @@ export const HomeContact: React.FC = () => {
                           key={slot}
                           type="button"
                           onClick={() => handleSlotClick(slot)}
-                          className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 border ${
+                          className={`py-2 min-[380px]:py-2.5 px-2 min-[380px]:px-3 rounded-xl text-[11px] min-[380px]:text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center justify-center gap-1 sm:gap-1.5 border ${
                             isSelected
                               ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-purple-400/80 shadow-[0_0_15px_rgba(168,85,247,0.5)] scale-[1.02]"
                               : "bg-slate-900/60 border-white/[0.08] text-slate-300 hover:border-purple-500/50 hover:bg-purple-950/30 hover:text-white"
                           }`}
                         >
-                          <Clock className={`w-3.5 h-3.5 ${isSelected ? "text-white" : "text-slate-400"}`} />
+                          <Clock className={`w-3 sm:w-3.5 h-3 sm:h-3.5 ${isSelected ? "text-white" : "text-slate-400"}`} />
                           <span>{slot}</span>
                         </button>
                       );
@@ -595,7 +595,7 @@ export const HomeContact: React.FC = () => {
             </div>
 
             {/* Confirm Booking CTA */}
-            <div className="pt-4 mt-4 border-t border-white/[0.06]">
+            <div className="pt-3.5 sm:pt-4 mt-3.5 sm:mt-4 border-t border-white/[0.06]">
               <motion.button
                 type="button"
                 disabled={!selectedDate || !selectedSlot}
@@ -613,10 +613,10 @@ export const HomeContact: React.FC = () => {
                     ? {}
                     : { scale: 0.98 }
                 }
-                className="w-full relative inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-[length:200%_auto] hover:bg-right shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed border border-purple-400/30 overflow-hidden"
+                className="w-full relative inline-flex items-center justify-center gap-2 py-3 sm:py-3.5 px-4 sm:px-5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-[length:200%_auto] hover:bg-right shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed border border-purple-400/30 overflow-hidden"
               >
-                <Sparkles className="w-4 h-4 text-purple-200" />
-                <span>
+                <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-purple-200" />
+                <span className="truncate">
                   {selectedSlot
                     ? `Confirm Booking (${selectedSlot})`
                     : "Confirm Booking"}
@@ -630,7 +630,7 @@ export const HomeContact: React.FC = () => {
       {/* ─── 5. Polished Booking Confirmation Modal ──────────────────────── */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
             {/* Modal Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -654,19 +654,19 @@ export const HomeContact: React.FC = () => {
                   : { opacity: 0, scale: 0.95, y: 16 }
               }
               transition={{ duration: 0.28, ease: "easeOut" }}
-              className="relative z-10 w-full max-w-lg rounded-3xl bg-slate-900 border border-purple-500/30 shadow-2xl shadow-purple-950/70 p-6 sm:p-8 overflow-hidden"
+              className="relative z-10 w-full max-w-lg max-h-[92dvh] overflow-y-auto custom-scrollbar rounded-2xl sm:rounded-3xl bg-slate-900 border border-purple-500/30 shadow-2xl shadow-purple-950/70 p-4 sm:p-8"
             >
               {/* Modal Top Bar */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
-                <div className="flex items-center gap-2.5">
-                  <div className="p-2 rounded-xl bg-purple-950/80 border border-purple-500/30 text-purple-400">
-                    <CalendarIcon className="w-5 h-5" />
+              <div className="flex items-center justify-between pb-3.5 sm:pb-4 border-b border-white/10 mb-4 sm:mb-5">
+                <div className="flex items-center gap-2 sm:gap-2.5">
+                  <div className="p-1.5 sm:p-2 rounded-xl bg-purple-950/80 border border-purple-500/30 text-purple-400">
+                    <CalendarIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-white">
+                    <h3 className="text-sm sm:text-lg font-bold text-white">
                       Confirm Appointment
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-[11px] sm:text-xs text-slate-400">
                       15-minute 1-on-1 with Prasanta Gorai
                     </p>
                   </div>
@@ -678,17 +678,17 @@ export const HomeContact: React.FC = () => {
                   className="p-1.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
 
               {!bookingConfirmed ? (
                 // Booking Form
-                <form onSubmit={handleConfirmSubmit} className="space-y-4">
+                <form onSubmit={handleConfirmSubmit} className="space-y-3.5 sm:space-y-4">
                   {/* Selected Slot Highlight Badge */}
-                  <div className="p-3.5 rounded-2xl bg-purple-950/40 border border-purple-500/30 flex items-center justify-between text-xs sm:text-sm">
-                    <span className="text-slate-300 font-medium">Selected Slot:</span>
-                    <span className="font-bold text-purple-300 font-mono">
+                  <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-purple-950/40 border border-purple-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 text-xs sm:text-sm">
+                    <span className="text-slate-300 font-medium text-[11px] sm:text-xs">Selected Slot:</span>
+                    <span className="font-bold text-purple-300 font-mono text-xs sm:text-sm">
                       {formattedSelectedDate} @ {selectedSlot} (GMT+5:30)
                     </span>
                   </div>

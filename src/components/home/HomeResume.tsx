@@ -83,7 +83,7 @@ export const HomeResume: React.FC = () => {
   return (
     <section
       id="resume"
-      className="relative w-full py-28 md:py-36 px-6 md:px-10 lg:px-16 overflow-hidden bg-[#020617] scroll-mt-20"
+      className="relative w-full py-16 sm:py-28 md:py-36 px-4 sm:px-8 md:px-10 lg:px-16 overflow-hidden bg-[#020617] scroll-mt-20"
     >
       {/* 1. Subtle Background Grid */}
       <div
@@ -161,7 +161,7 @@ export const HomeResume: React.FC = () => {
           </motion.p>
 
           {/* ONE Primary Button: "View Resume →" */}
-          <motion.div variants={itemFadeUp} className="mt-10">
+          <motion.div variants={itemFadeUp} className="mt-8 sm:mt-10 w-full sm:w-auto flex justify-center">
             <motion.button
               type="button"
               onClick={() => setIsModalOpen(true)}
@@ -175,7 +175,7 @@ export const HomeResume: React.FC = () => {
                     }
               }
               whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-[length:200%_auto] hover:bg-right shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all duration-300 cursor-pointer border border-purple-400/30"
+              className="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-[length:200%_auto] hover:bg-right shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all duration-300 cursor-pointer border border-purple-400/30 w-full min-[420px]:w-auto"
             >
               {/* Subtle button specular shine line */}
               <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
@@ -218,13 +218,13 @@ export const HomeResume: React.FC = () => {
               className="relative z-10 w-full max-w-5xl h-[88vh] flex flex-col rounded-3xl bg-slate-900 border border-purple-500/30 shadow-2xl shadow-purple-950/70 overflow-hidden"
             >
               {/* Modal Top Bar */}
-              <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-slate-950/95">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-purple-950/80 border border-purple-500/30 text-purple-400">
-                    <FileText className="w-5 h-5" />
+              <div className="flex items-center justify-between px-3.5 sm:px-6 py-3 sm:py-4 border-b border-white/10 bg-slate-950/95">
+                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                  <div className="p-2 rounded-xl bg-purple-950/80 border border-purple-500/30 text-purple-400 shrink-0">
+                    <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-bold text-base sm:text-lg">
+                  <div className="min-w-0">
+                    <h3 className="text-white font-bold text-sm sm:text-lg truncate max-w-[130px] min-[380px]:max-w-[200px] sm:max-w-none">
                       {resumeTitle}
                     </h3>
                     <p className="text-xs text-slate-400 hidden sm:block">
@@ -233,17 +233,17 @@ export const HomeResume: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 sm:gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                   {/* Download Resume Button inside Viewer */}
                   <a
                     href={activePdfUrl}
                     download="Prasanta_Gorai_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-white bg-purple-600 hover:bg-purple-500 shadow-md transition-all duration-200 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+                    className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold text-white bg-purple-600 hover:bg-purple-500 shadow-md transition-all duration-200 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]"
                   >
-                    <Download className="w-4 h-4" />
-                    <span>Download Resume</span>
+                    <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <span>Download</span>
                   </a>
 
                   {/* Close Button */}

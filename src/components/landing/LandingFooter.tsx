@@ -8,7 +8,7 @@ export const LandingFooter: React.FC = () => {
 
   return (
     <>
-      <footer className="relative border-t border-white/[0.06] bg-[#020617]/90 backdrop-blur-md py-12 px-6 sm:px-8">
+      <footer className="relative border-t border-white/[0.06] bg-[#020617]/90 backdrop-blur-md py-8 sm:py-12 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & Developer Info */}
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
@@ -27,7 +27,7 @@ export const LandingFooter: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
             {SOCIAL_LINKS.map((item) => {
               const Icon = item.icon;
               if (item.name === "Email") {

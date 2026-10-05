@@ -45,14 +45,14 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
     >
       {/* Top Label with subtle accent divider line */}
       <div className="flex items-center gap-2.5 mb-3">
-        <span className="text-[11px] md:text-xs font-semibold tracking-[0.25em] uppercase text-indigo-300/80">
+        <span className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-indigo-300/80">
           {badgeText}
         </span>
         <span className="w-8 h-[1px] bg-gradient-to-r from-purple-500/80 to-transparent" />
       </div>
 
       {/* Main Title */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 sm:mb-4">
         {titlePrefix && <span>{titlePrefix} </span>}
         {gradientText && (
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-indigo-300 to-purple-400 glow-text-purple">
@@ -64,7 +64,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 
       {/* Optional Description */}
       {description && (
-        <p className="text-sm md:text-base text-slate-400 max-w-xl leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-slate-400 max-w-xl leading-relaxed">
           {description}
         </p>
       )}

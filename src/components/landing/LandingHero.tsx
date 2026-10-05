@@ -35,13 +35,13 @@ export const LandingHero: React.FC = () => {
       <div className="absolute top-1/3 right-1/10 w-96 h-96 bg-indigo-900/15 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Main Hero Two-Column Grid */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Typography & CTAs */}
           <div className="lg:col-span-6 flex flex-col items-start text-left z-10">
             {/* Small Label */}
-            <motion.div {...fadeInUp(0.1)} className="mb-4">
-              <span className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-indigo-300/80 bg-indigo-950/30 border border-indigo-500/20 px-3.5 py-1.5 rounded-full">
+            <motion.div {...fadeInUp(0.1)} className="mb-3.5 sm:mb-4">
+              <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-indigo-300/80 bg-indigo-950/30 border border-indigo-500/20 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full">
                 <Sparkles className="w-3.5 h-3.5 text-purple-400" />
                 WELCOME TO MY PORTFOLIO
               </span>
@@ -50,7 +50,7 @@ export const LandingHero: React.FC = () => {
             {/* Main Heading */}
             <motion.h1
               {...fadeInUp(0.25)}
-              className="text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-black tracking-tight leading-[0.95] text-white mb-4"
+              className="text-3xl min-[360px]:text-4xl min-[420px]:text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black tracking-tight leading-[0.98] sm:leading-[0.95] text-white mb-3 sm:mb-4"
             >
               PRASANTA
               <br />
@@ -60,14 +60,14 @@ export const LandingHero: React.FC = () => {
             </motion.h1>
 
             {/* Role Tag */}
-            <motion.div {...fadeInUp(0.4)} className="mb-5">
+            <motion.div {...fadeInUp(0.4)} className="mb-4 sm:mb-5">
               <TypewriterRole />
             </motion.div>
 
             {/* Description */}
             <motion.p
               {...fadeInUp(0.55)}
-              className="text-base md:text-lg text-slate-400 max-w-lg leading-relaxed mb-8"
+              className="text-sm sm:text-base md:text-lg text-slate-400 max-w-lg leading-relaxed mb-6 sm:mb-8"
             >
               I build modern, scalable and interactive web applications with clean code and
               great user experiences.
@@ -76,12 +76,12 @@ export const LandingHero: React.FC = () => {
             {/* Buttons */}
             <motion.div
               {...fadeInUp(0.7)}
-              className="flex flex-wrap items-center gap-4 sm:gap-6 w-full sm:w-auto"
+              className="flex flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:gap-4 md:gap-6 w-full sm:w-auto"
             >
               {/* Primary CTA */}
               <button
                 onClick={handleEnterPortfolio}
-                className="group relative inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-sm md:text-base font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 hover:from-indigo-500 hover:via-purple-500 hover:to-indigo-400 shadow-[0_0_30px_rgba(147,51,234,0.5)] hover:shadow-[0_0_40px_rgba(168,85,247,0.7)] border border-purple-400/30 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+                className="group relative inline-flex items-center justify-center gap-3 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-sm md:text-base font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 hover:from-indigo-500 hover:via-purple-500 hover:to-indigo-400 shadow-[0_0_30px_rgba(147,51,234,0.5)] hover:shadow-[0_0_40px_rgba(168,85,247,0.7)] border border-purple-400/30 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 w-full min-[420px]:w-auto"
               >
                 <span>Enter Portfolio</span>
                 <ArrowRight className="w-4 h-4 text-purple-200 group-hover:translate-x-1.5 transition-transform duration-200" />
@@ -90,11 +90,11 @@ export const LandingHero: React.FC = () => {
               {/* Secondary CTA: Watch Intro */}
               <button
                 onClick={() => setIntroModalOpen(true)}
-                className="group inline-flex items-center gap-3 rounded-full px-5 py-3 text-sm md:text-base font-medium text-slate-200 hover:text-white hover:bg-slate-900/40 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+                className="group inline-flex items-center justify-center gap-3 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 text-sm md:text-base font-medium text-slate-200 hover:text-white hover:bg-slate-900/40 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 w-full min-[420px]:w-auto"
                 aria-label="Watch Intro Video or Presentation"
               >
-                <div className="w-9 h-9 rounded-full bg-slate-900/90 border border-purple-500/40 flex items-center justify-center text-purple-400 group-hover:text-purple-300 group-hover:border-purple-400 shadow-[0_0_12px_rgba(147,51,234,0.3)] group-hover:scale-105 transition-all">
-                  <Play className="w-4 h-4 ml-0.5 fill-current" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/90 border border-purple-500/40 flex items-center justify-center text-purple-400 group-hover:text-purple-300 group-hover:border-purple-400 shadow-[0_0_12px_rgba(147,51,234,0.3)] group-hover:scale-105 transition-all">
+                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 fill-current" />
                 </div>
                 <span>Watch Intro</span>
               </button>
@@ -137,7 +137,7 @@ export const LandingHero: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-xl rounded-3xl bg-[#0b1026] border border-purple-500/30 p-6 sm:p-8 shadow-[0_25px_60px_-15px_rgba(147,51,234,0.3)] z-10 overflow-hidden"
+              className="relative w-full max-w-xl rounded-3xl bg-[#0b1026] border border-purple-500/30 p-5 sm:p-8 shadow-[0_25px_60px_-15px_rgba(147,51,234,0.3)] z-10 overflow-hidden max-h-[92dvh] overflow-y-auto custom-scrollbar"
               role="dialog"
               aria-modal="true"
               aria-labelledby="intro-title"
@@ -173,7 +173,7 @@ export const LandingHero: React.FC = () => {
                 <p>
                   Whether it&apos;s crafting pixel-perfect interfaces, architecting resilient backend APIs, or optimizing full-stack workflows, I focus on clean code and delightful user journeys.
                 </p>
-                <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-2.5 sm:gap-3 pt-2">
                   <div className="p-3 rounded-xl bg-slate-900/60 border border-white/5">
                     <span className="block text-xs text-slate-400">Core Expertise</span>
                     <span className="text-sm font-semibold text-indigo-300">Frontend & Backend</span>
@@ -186,10 +186,10 @@ export const LandingHero: React.FC = () => {
               </div>
 
               {/* Modal CTA */}
-              <div className="flex justify-end gap-3 pt-2 border-t border-white/10">
+              <div className="flex flex-col-reverse min-[420px]:flex-row justify-end gap-2 sm:gap-3 pt-3 border-t border-white/10">
                 <button
                   onClick={() => setIntroModalOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-full hover:bg-white/5 transition-colors"
+                  className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-full hover:bg-white/5 transition-colors text-center"
                 >
                   Close
                 </button>
@@ -198,7 +198,7 @@ export const LandingHero: React.FC = () => {
                     setIntroModalOpen(false);
                     navigate("/home");
                   }}
-                  className="inline-flex items-center gap-2 px-5 py-2 text-xs font-semibold text-white rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 shadow-[0_0_15px_rgba(147,51,234,0.4)]"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 shadow-[0_0_15px_rgba(147,51,234,0.4)]"
                 >
                   <Rocket className="w-3.5 h-3.5" />
                   <span>Enter Full Portfolio</span>

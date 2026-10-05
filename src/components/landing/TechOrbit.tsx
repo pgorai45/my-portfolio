@@ -126,9 +126,9 @@ export const TechOrbit: React.FC = () => {
               </div>
 
               {/* Realistic Code Lines Editor */}
-              <div className="font-mono text-[11px] leading-5 space-y-0.5 text-left">
-                <div className="flex gap-3">
-                  <span className="text-slate-600 select-none text-[10px] w-4 text-right">1</span>
+              <div className="font-mono text-[9px] min-[380px]:text-[10px] sm:text-[11px] leading-4 sm:leading-5 space-y-0.5 text-left">
+                <div className="flex gap-2 sm:gap-3">
+                  <span className="text-slate-600 select-none text-[8px] sm:text-[10px] w-3.5 sm:w-4 text-right">1</span>
                   <span>
                     <span className="text-purple-400">const</span>{" "}
                     <span className="text-blue-400">developer</span> = &#123;
@@ -196,11 +196,11 @@ export const TechOrbit: React.FC = () => {
       {/* 1. React Icon Badge (Top-Left) */}
       <motion.div
         {...orbitBadgeAnim(0, 7)}
-        className="absolute top-[8%] left-[6%] z-20"
+        className="absolute top-[6%] left-[4%] sm:left-[6%] z-20"
         title="React"
       >
-        <div className="p-3 rounded-2xl bg-[#090f28]/85 backdrop-blur-md border border-cyan-500/40 shadow-[0_0_20px_rgba(6,182,212,0.35)] hover:border-cyan-400 transition-all">
-          <svg className="w-7 h-7" viewBox="-11.5 -10.23174 23 20.46348">
+        <div className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl bg-[#090f28]/85 backdrop-blur-md border border-cyan-500/40 shadow-[0_0_20px_rgba(6,182,212,0.35)] hover:border-cyan-400 transition-all">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" viewBox="-11.5 -10.23174 23 20.46348">
             <circle cx="0" cy="0" r="2.05" fill="#00d8ff" />
             <g stroke="#00d8ff" strokeWidth="1" fill="none">
               <ellipse rx="11" ry="4.2" />
@@ -214,12 +214,12 @@ export const TechOrbit: React.FC = () => {
       {/* 2. JavaScript Badge (Right-Middle) */}
       <motion.div
         {...orbitBadgeAnim(1.2, 8)}
-        className="absolute top-[30%] right-[1%] sm:-right-[2%] z-20"
+        className="absolute top-[28%] right-[2%] sm:-right-[2%] z-20"
         title="JavaScript"
       >
-        <div className="p-2.5 rounded-2xl bg-[#14151e]/85 backdrop-blur-md border border-yellow-500/40 shadow-[0_0_20px_rgba(234,179,8,0.35)] hover:border-yellow-400 transition-all">
-          <div className="w-7 h-7 bg-[#f7df1e] rounded flex items-end justify-end p-0.5 shadow-sm">
-            <span className="font-extrabold text-[#000000] text-[12px] leading-tight pr-0.5">JS</span>
+        <div className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl bg-[#14151e]/85 backdrop-blur-md border border-yellow-500/40 shadow-[0_0_20px_rgba(234,179,8,0.35)] hover:border-yellow-400 transition-all">
+          <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-[#f7df1e] rounded flex items-end justify-end p-0.5 shadow-sm">
+            <span className="font-extrabold text-[#000000] text-[10px] sm:text-[11px] md:text-[12px] leading-tight pr-0.5">JS</span>
           </div>
         </div>
       </motion.div>
@@ -227,11 +227,11 @@ export const TechOrbit: React.FC = () => {
       {/* 3. Python Badge (Bottom-Left) */}
       <motion.div
         {...orbitBadgeAnim(0.6, 6)}
-        className="absolute bottom-[16%] left-[10%] z-20"
+        className="absolute bottom-[14%] left-[6%] sm:left-[10%] z-20"
         title="Python"
       >
-        <div className="p-2.5 rounded-2xl bg-[#0a1226]/85 backdrop-blur-md border border-blue-500/40 shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:border-blue-400 transition-all">
-          <svg className="w-7 h-7" viewBox="0 0 128 128">
+        <div className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl bg-[#0a1226]/85 backdrop-blur-md border border-blue-500/40 shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:border-blue-400 transition-all">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" viewBox="0 0 128 128">
             <path
               fill="#387eb8"
               d="M63.5 6.7c-29.3 0-27.5 12.7-27.5 12.7l.1 13.2h28.1v4H25.4S6.2 34.4 6.2 64.2c0 29.8 16.8 28.7 16.8 28.7h10.1v-14.2s-.5-16.8 16.5-16.8h28.2v-4.2S79.6 42 79.6 30.1c0-11.8-16.1-23.4-16.1-23.4zm-14.7 9.8c2.9 0 5.2 2.3 5.2 5.2s-2.3 5.2-5.2 5.2-5.2-2.3-5.2-5.2 2.3-5.2 5.2-5.2z"
@@ -247,12 +247,12 @@ export const TechOrbit: React.FC = () => {
       {/* 4. Database Badge (Bottom-Right) */}
       <motion.div
         {...orbitBadgeAnim(1.8, 7)}
-        className="absolute bottom-[20%] right-[8%] z-20"
+        className="absolute bottom-[18%] right-[5%] sm:right-[8%] z-20"
         title="Database & Cloud"
       >
-        <div className="p-3 rounded-2xl bg-[#140b28]/85 backdrop-blur-md border border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:border-purple-400 transition-all">
+        <div className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl bg-[#140b28]/85 backdrop-blur-md border border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:border-purple-400 transition-all">
           <svg
-            className="w-7 h-7 text-purple-400"
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-purple-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

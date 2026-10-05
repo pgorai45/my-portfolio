@@ -5,11 +5,11 @@ import { SectionHeading } from "../common/SectionHeading";
 
 export const ExploreSection: React.FC = () => {
   return (
-    <section id="explore" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="explore" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       {/* Background Soft Lighting Gradients */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-purple-900/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         {/* Section Heading */}
         <SectionHeading
           badgeText="EXPLORE"
@@ -17,7 +17,7 @@ export const ExploreSection: React.FC = () => {
           gradientText="inside"
           description="A showcase of my skills, projects, experience and journey as a Full Stack Developer."
           align="center"
-          className="mb-14 md:mb-16"
+          className="mb-10 sm:mb-14 md:mb-16"
         />
 
         {/* 4 Glass Cards Grid: 1 col on mobile, 2 col on tablet, 4 col on desktop */}

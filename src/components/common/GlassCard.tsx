@@ -31,7 +31,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       {...motionProps}
       onClick={onClick}
       className={cn(
-        "relative rounded-2xl p-6 overflow-hidden",
+        "relative rounded-2xl p-4 sm:p-6 overflow-hidden",
         "bg-[#0a0f24]/60 backdrop-blur-xl border border-white/[0.08]",
         "transition-all duration-300 group shadow-lg shadow-black/40",
         hoverEffect && glowColor,

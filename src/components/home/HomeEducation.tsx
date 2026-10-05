@@ -140,7 +140,7 @@ export const HomeEducation: React.FC = () => {
   return (
     <section
       id="education"
-      className="relative w-full py-24 px-6 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
+      className="relative w-full py-16 sm:py-24 px-4 sm:px-8 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
     >
       {/* 1. Minimal Ambient Background Grid with Radial Vignette */}
       <div
@@ -264,12 +264,12 @@ export const HomeEducation: React.FC = () => {
           )}
 
           {/* Timeline Nodes */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4 relative z-10">
             {activeTimelineSteps.map((step, idx) => (
               <div
                 key={step.level}
                 className={cn(
-                  "flex items-center sm:flex-col sm:text-center gap-3 p-3.5 sm:p-4 rounded-2xl border transition-all duration-300",
+                  "flex items-center sm:flex-col sm:text-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-2xl border transition-all duration-300",
                   "bg-slate-900/60 backdrop-blur-md shadow-md shadow-black/30",
                   step.isCurrent
                     ? "border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)]"
@@ -330,7 +330,7 @@ export const HomeEducation: React.FC = () => {
                     transition: { duration: 0.25, ease: "easeOut" },
                   }
             }
-            className="lg:col-span-7 group relative rounded-3xl p-7 sm:p-9 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 shadow-2xl shadow-black/50 flex flex-col justify-between"
+            className="lg:col-span-7 group relative rounded-3xl p-5 sm:p-7 md:p-9 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 shadow-2xl shadow-black/50 flex flex-col justify-between"
           >
             {/* Top Edge Specular Reflection */}
             <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-400/40 to-transparent pointer-events-none" />
@@ -346,16 +346,16 @@ export const HomeEducation: React.FC = () => {
 
             <div className="relative z-10">
               {/* Card Top Strip */}
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+              <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-3.5 rounded-2xl bg-purple-950/80 border border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.35)] group-hover:scale-105 transition-transform duration-300">
-                    <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400" />
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-purple-950/80 border border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.35)] group-hover:scale-105 transition-transform duration-300">
+                    <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-mono tracking-widest uppercase text-purple-300 font-semibold block">
+                    <span className="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-purple-300 font-semibold block">
                       {mainEdu?.stream ? mainEdu.stream.toUpperCase() : "UNDERGRADUATE DEGREE"}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight group-hover:text-purple-200 transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-white tracking-tight group-hover:text-purple-200 transition-colors">
                       {mainEdu?.degree || "B.Tech in Computer Science & Engineering"}
                     </h3>
                   </div>
@@ -372,7 +372,7 @@ export const HomeEducation: React.FC = () => {
               </div>
 
               {/* Institution & Overview */}
-              <div className="mb-6 pb-6 border-b border-white/[0.08]">
+              <div className="mb-5 sm:mb-6 pb-5 sm:pb-6 border-b border-white/[0.08]">
                 <div className="flex items-center gap-2 text-slate-200 font-semibold text-base sm:text-lg mb-2">
                   <span>{mainEdu?.institution || "Brainware University"}</span>
                   <span className="text-slate-500">•</span>
@@ -386,7 +386,7 @@ export const HomeEducation: React.FC = () => {
               </div>
 
               {/* Academic Performance Metric Spotlight */}
-              <div className="mb-6 p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-purple-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-inner">
+              <div className="mb-5 sm:mb-6 p-3.5 sm:p-5 rounded-2xl bg-slate-950/80 border border-purple-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 shadow-inner">
                 <div className="flex items-center gap-3.5">
                   <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-300">
                     <TrendingUp className="w-5 h-5 text-purple-400" />
@@ -395,7 +395,7 @@ export const HomeEducation: React.FC = () => {
                     <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">
                       Academic Score
                     </span>
-                    <span className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
+                    <span className="text-lg min-[360px]:text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
                       Score: <span className="text-purple-300">{mainEdu?.grade || "8.7 CGPA"}</span>
                     </span>
                   </div>
@@ -429,11 +429,11 @@ export const HomeEducation: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-3">
                 Core Coursework & Competencies
               </span>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {btechCoursework.map((course) => (
                   <span
                     key={course}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 hover:border-purple-400/50 hover:text-white hover:bg-purple-950/40 transition-all duration-200 cursor-default"
+                    className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 hover:border-purple-400/50 hover:text-white hover:bg-purple-950/40 transition-all duration-200 cursor-default"
                   >
                     <CheckCircle2 className="w-3 h-3 text-purple-400 shrink-0" />
                     <span>{course}</span>
@@ -464,7 +464,7 @@ export const HomeEducation: React.FC = () => {
                           }
                     }
                     className={cn(
-                      "group flex-1 relative rounded-2xl p-6 sm:p-7 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] transition-all duration-300 shadow-xl shadow-black/40 flex flex-col justify-between",
+                      "group flex-1 relative rounded-2xl p-4 sm:p-6 md:p-7 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] transition-all duration-300 shadow-xl shadow-black/40 flex flex-col justify-between",
                       isCyan ? "hover:border-cyan-400/50" : "hover:border-blue-400/50"
                     )}
                   >
@@ -579,7 +579,7 @@ export const HomeEducation: React.FC = () => {
                           transition: { duration: 0.25, ease: "easeOut" },
                         }
                   }
-                  className="group flex-1 relative rounded-2xl p-6 sm:p-7 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] hover:border-cyan-400/50 transition-all duration-300 shadow-xl shadow-black/40 flex flex-col justify-between"
+                  className="group flex-1 relative rounded-2xl p-4 sm:p-6 md:p-7 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] hover:border-cyan-400/50 transition-all duration-300 shadow-xl shadow-black/40 flex flex-col justify-between"
                 >
                   <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent pointer-events-none" />
                   <div
@@ -645,7 +645,7 @@ export const HomeEducation: React.FC = () => {
                           transition: { duration: 0.25, ease: "easeOut" },
                         }
                   }
-                  className="group flex-1 relative rounded-2xl p-6 sm:p-7 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] hover:border-blue-400/50 transition-all duration-300 shadow-xl shadow-black/40 flex flex-col justify-between"
+                  className="group flex-1 relative rounded-2xl p-4 sm:p-6 md:p-7 overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] hover:border-blue-400/50 transition-all duration-300 shadow-xl shadow-black/40 flex flex-col justify-between"
                 >
                   <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent pointer-events-none" />
                   <div

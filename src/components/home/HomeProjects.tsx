@@ -391,7 +391,7 @@ export const HomeProjects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="relative w-full py-24 px-6 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
+      className="relative w-full py-16 sm:py-24 px-4 sm:px-8 md:px-10 lg:px-16 overflow-hidden select-none bg-[#020617] scroll-mt-20"
     >
       {/* 1. Subtle Background Grid with Radial Vignette */}
       <div
@@ -509,7 +509,7 @@ export const HomeProjects: React.FC = () => {
                       }
                 }
                 className={cn(
-                  "group relative rounded-3xl p-5 sm:p-6 overflow-hidden flex flex-col justify-between h-full",
+                  "group relative rounded-3xl p-4 sm:p-5 md:p-6 overflow-hidden flex flex-col justify-between h-full",
                   "bg-slate-900/60 backdrop-blur-xl border border-white/[0.08]",
                   "transition-all duration-300 shadow-xl shadow-black/40",
                   config.hoverBorder,
@@ -564,7 +564,7 @@ export const HomeProjects: React.FC = () => {
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="text-xl font-bold text-white mb-2.5 group-hover:text-purple-200 transition-colors tracking-tight">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-2.5 group-hover:text-purple-200 transition-colors tracking-tight">
                     {project.title}
                   </h3>
 
@@ -579,7 +579,7 @@ export const HomeProjects: React.FC = () => {
                       <span
                         key={tag}
                         className={cn(
-                          "text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 transition-all duration-200 cursor-default",
+                          "text-[11px] sm:text-xs font-mono font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-slate-950/70 border border-white/[0.08] text-slate-300 transition-all duration-200 cursor-default",
                           config.tagHover
                         )}
                       >
@@ -590,14 +590,14 @@ export const HomeProjects: React.FC = () => {
                 </div>
 
                 {/* Card Action Buttons (Bottom Bar) */}
-                <div className="relative z-10 pt-4 border-t border-white/[0.06] flex items-center justify-between gap-3">
+                <div className="relative z-10 pt-4 border-t border-white/[0.06] flex items-center justify-between gap-2.5 sm:gap-3">
                   {/* Primary: View Project */}
                   <a
                     href={project.liveDemoUrl || project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold text-white bg-gradient-to-r shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 group/btn",
+                      "flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-3.5 sm:px-4 py-2.5 text-xs sm:text-sm font-semibold text-white bg-gradient-to-r shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 group/btn",
                       config.btnGrad
                     )}
                   >
@@ -634,7 +634,7 @@ export const HomeProjects: React.FC = () => {
             href="https://github.com/pgorai45?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 rounded-full text-sm sm:text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-800/90 border border-purple-500/30 hover:border-purple-400/60 shadow-[0_0_25px_rgba(147,51,234,0.2)] hover:shadow-[0_0_35px_rgba(168,85,247,0.4)] backdrop-blur-md transition-all duration-300"
+            className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-7 py-3 rounded-full text-xs sm:text-sm min-[420px]:text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-800/90 border border-purple-500/30 hover:border-purple-400/60 shadow-[0_0_25px_rgba(147,51,234,0.2)] hover:shadow-[0_0_35px_rgba(168,85,247,0.4)] backdrop-blur-md transition-all duration-300 w-full min-[420px]:w-auto"
           >
             <GithubIcon className="w-4 h-4 text-purple-400" />
             <span>View All Projects on GitHub</span>

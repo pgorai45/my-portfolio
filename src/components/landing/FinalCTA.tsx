@@ -22,7 +22,7 @@ export const FinalCTA: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-24 pb-36 md:pb-44 overflow-hidden flex flex-col items-center justify-center text-center">
+    <section className="relative pt-16 sm:pt-24 pb-28 sm:pb-36 md:pb-44 overflow-hidden flex flex-col items-center justify-center text-center">
       {/* Background Ambient Radial Glow */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-purple-700/25 via-indigo-900/20 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
@@ -167,7 +167,7 @@ export const FinalCTA: React.FC = () => {
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center">
         {/* Label */}
         <motion.div
           variants={fadeInUp}
@@ -188,7 +188,7 @@ export const FinalCTA: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-8"
+          className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 sm:mb-8"
         >
           Let&apos;s explore{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-indigo-300 to-purple-400 glow-text-purple">
@@ -202,10 +202,11 @@ export const FinalCTA: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
+          className="w-full sm:w-auto flex justify-center"
         >
           <button
             onClick={handleEnterPortfolio}
-            className="group relative inline-flex items-center justify-center gap-3 rounded-full px-8 py-3.5 sm:px-9 sm:py-4 text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 hover:from-indigo-500 hover:via-purple-500 hover:to-indigo-400 shadow-[0_0_35px_rgba(147,51,234,0.6)] hover:shadow-[0_0_50px_rgba(168,85,247,0.85)] border border-purple-400/40 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+            className="group relative inline-flex items-center justify-center gap-3 rounded-full px-6 sm:px-9 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 hover:from-indigo-500 hover:via-purple-500 hover:to-indigo-400 shadow-[0_0_35px_rgba(147,51,234,0.6)] hover:shadow-[0_0_50px_rgba(168,85,247,0.85)] border border-purple-400/40 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 w-full min-[420px]:w-auto"
             aria-label="Enter Portfolio Homepage"
           >
             <span>Enter Portfolio</span>

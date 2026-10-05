@@ -153,7 +153,9 @@ export const HomeHeroVisual: React.FC = () => {
           className="
             relative
             w-full
-            max-w-[250px]
+            max-w-[210px]
+            min-[360px]:max-w-[240px]
+            min-[420px]:max-w-[270px]
             sm:max-w-[290px]
             md:max-w-[330px]
             lg:max-w-[360px]

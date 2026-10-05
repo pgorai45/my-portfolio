@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  FileText,
-  Download,
-  X,
-  ArrowRight,
-  ExternalLink,
-} from "lucide-react";
+import { FileText, Download, X, ArrowRight, ExternalLink } from "lucide-react";
 import { usePrefersReducedMotion } from "../../hooks/useMediaQuery";
-import resumePdf from "../../assets/resume/Prasanta_Gorai_Resume.pdf";
 import { portfolioApi } from "../../services/api";
 
 export const HomeResume: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activePdfUrl, setActivePdfUrl] = useState<string>(resumePdf);
-  const [resumeTitle, setResumeTitle] = useState<string>("Prasanta Gorai — Resume");
+  const [activePdfUrl, setActivePdfUrl] = useState<string>("");
+  const [resumeTitle, setResumeTitle] = useState<string>(
+    "Prasanta Gorai — Resume",
+  );
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     portfolioApi.getResume().then((res) => {
       if (res.success && res.data && res.data.file_path) {
-        setActivePdfUrl(res.data.file_path);
+        const backendOrigin =
+          import.meta.env.VITE_BACKEND_URL ||
+          import.meta.env.VITE_API_URL ||
+          "https://my-portfolio-production-98ef.up.railway.app";
+
+        const resumeUrl = res.data.file_path.startsWith("http")
+          ? res.data.file_path
+          : `${backendOrigin.replace(/\/$/, "")}${res.data.file_path}`;
+
+        setActivePdfUrl(resumeUrl);
+
         if (res.data.title) {
           setResumeTitle(res.data.title);
         }
@@ -87,8 +92,10 @@ export const HomeResume: React.FC = () => {
           backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
                             linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px)`,
           backgroundSize: "44px 44px",
-          maskImage: "radial-gradient(ellipse 65% 50% at 50% 50%, black 20%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse 65% 50% at 50% 50%, black 20%, transparent 80%)",
+          maskImage:
+            "radial-gradient(ellipse 65% 50% at 50% 50%, black 20%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 65% 50% at 50% 50%, black 20%, transparent 80%)",
         }}
       />
 
@@ -149,7 +156,8 @@ export const HomeResume: React.FC = () => {
             variants={itemFadeUp}
             className="mt-6 max-w-2xl text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed font-normal"
           >
-            Explore my education, technical skills, projects, and development journey through my resume.
+            Explore my education, technical skills, projects, and development
+            journey through my resume.
           </motion.p>
 
           {/* ONE Primary Button: "View Resume →" */}
@@ -162,7 +170,8 @@ export const HomeResume: React.FC = () => {
                   ? {}
                   : {
                       scale: 1.04,
-                      boxShadow: "0 0 35px rgba(168, 85, 247, 0.5), 0 0 70px rgba(99, 102, 241, 0.25)",
+                      boxShadow:
+                        "0 0 35px rgba(168, 85, 247, 0.5), 0 0 70px rgba(99, 102, 241, 0.25)",
                     }
               }
               whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}

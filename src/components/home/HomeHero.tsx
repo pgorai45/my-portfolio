@@ -50,9 +50,20 @@ export const HomeHero: React.FC = () => {
 
   const handleDownloadResume = () => {
     if (activeResume?.file_path) {
+      const backendOrigin =
+        import.meta.env.VITE_BACKEND_URL ||
+        import.meta.env.VITE_API_URL ||
+        "https://my-portfolio-production-98ef.up.railway.app";
+
+      const resumeUrl = activeResume.file_path.startsWith("http")
+        ? activeResume.file_path
+        : `${backendOrigin.replace(/\/$/, "")}${activeResume.file_path}`;
+
       const link = document.createElement("a");
-      link.href = activeResume.file_path;
+      link.href = resumeUrl;
       link.download = activeResume.file_name || "Prasanta_Gorai_Resume.pdf";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -146,21 +157,30 @@ export const HomeHero: React.FC = () => {
                 <span className="relative flex h-2 w-2">
                   <span
                     className={`animate-ping absolute inline-flex h-full w-full rounded-full ${
-                      profile.available_for_work ? "bg-emerald-400 opacity-75" : "bg-slate-400 opacity-40"
+                      profile.available_for_work
+                        ? "bg-emerald-400 opacity-75"
+                        : "bg-slate-400 opacity-40"
                     }`}
                   />
                   <span
                     className={`relative inline-flex rounded-full h-2 w-2 ${
-                      profile.available_for_work ? "bg-emerald-500" : "bg-slate-500"
+                      profile.available_for_work
+                        ? "bg-emerald-500"
+                        : "bg-slate-500"
                     }`}
                   />
                 </span>
                 <span className="text-slate-300 font-medium">
-                  {profile.available_for_work ? "Available for work" : "Currently occupied"}
+                  {profile.available_for_work
+                    ? "Available for work"
+                    : "Currently occupied"}
                 </span>
               </div>
               <span className="text-slate-600">•</span>
-              <span>Based in {profile.location ? profile.location.split(",")[0] : "India"}</span>
+              <span>
+                Based in{" "}
+                {profile.location ? profile.location.split(",")[0] : "India"}
+              </span>
               <span className="text-slate-600">•</span>
               <span>Remote &amp; Worldwide</span>
             </motion.div>

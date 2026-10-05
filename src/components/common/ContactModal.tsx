@@ -35,7 +35,10 @@ interface FieldErrors {
   message?: string;
 }
 
-export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
+export const ContactModal: React.FC<ContactModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const nameInputRef = useRef<HTMLInputElement>(null);
 
@@ -47,7 +50,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
   const [errors, setErrors] = useState<FieldErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [isConfigError, setIsConfigError] = useState<boolean>(false);
 
@@ -97,7 +102,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
   }, [isOpen, status, handleClose]);
 
   // Validation function
-  const validateField = (field: keyof FormFields, value: string): string | undefined => {
+  const validateField = (
+    field: keyof FormFields,
+    value: string,
+  ): string | undefined => {
     const trimmed = value.trim();
     if (field === "name") {
       if (!trimmed) return "Your Name is required.";
@@ -106,7 +114,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     if (field === "email") {
       if (!trimmed) return "Your Email is required.";
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(trimmed)) return "Please enter a valid email address.";
+      if (!emailRegex.test(trimmed))
+        return "Please enter a valid email address.";
     }
     if (field === "message") {
       if (!trimmed) return "Message cannot be empty.";
@@ -164,14 +173,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           name: formData.name.trim(),
           email: formData.email.trim(),
           message: formData.message.trim(),
-          subject: "Portfolio Contact Form",
         });
         if (dbRes.success) dbSuccess = true;
       } catch (dbErr) {
         console.warn("DB save note:", dbErr);
       }
 
-      let emailRes: { success: boolean; error?: string; isConfigurationError?: boolean } = { success: false };
+      let emailRes: {
+        success: boolean;
+        error?: string;
+        isConfigurationError?: boolean;
+      } = { success: false };
       try {
         emailRes = await sendContactMessage(formData);
       } catch (mailErr) {
@@ -185,12 +197,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         setTouched({});
       } else {
         setStatus("error");
-        setErrorMessage(emailRes.error || "An error occurred while sending your message. Please try again.");
+        setErrorMessage(
+          emailRes.error ||
+            "An error occurred while sending your message. Please try again.",
+        );
         setIsConfigError(Boolean(emailRes.isConfigurationError));
       }
     } catch {
       setStatus("error");
-      setErrorMessage("Network error: Could not send your message. Please try again.");
+      setErrorMessage(
+        "Network error: Could not send your message. Please try again.",
+      );
     }
   };
 
@@ -296,9 +313,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 className="py-6 text-center space-y-4"
               >
                 <motion.div
-                  initial={
-                    prefersReducedMotion ? { opacity: 0 } : { scale: 0 }
-                  }
+                  initial={prefersReducedMotion ? { opacity: 0 } : { scale: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{
                     type: "spring",
@@ -316,7 +331,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     Message sent successfully!
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-sm mx-auto leading-relaxed">
-                    Thank you for reaching out. Your message has been dispatched to{" "}
+                    Thank you for reaching out. Your message has been dispatched
+                    to{" "}
                     <span className="text-purple-300 font-medium">
                       {TARGET_EMAIL}
                     </span>
@@ -401,10 +417,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         : "border-white/10 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
                     } disabled:opacity-50 disabled:cursor-not-allowed`}
                     aria-invalid={Boolean(errors.name && touched.name)}
-                    aria-describedby={errors.name && touched.name ? "name-error" : undefined}
+                    aria-describedby={
+                      errors.name && touched.name ? "name-error" : undefined
+                    }
                   />
                   {errors.name && touched.name && (
-                    <p id="name-error" className="mt-1 text-xs text-rose-400 font-medium">
+                    <p
+                      id="name-error"
+                      className="mt-1 text-xs text-rose-400 font-medium"
+                    >
                       {errors.name}
                     </p>
                   )}
@@ -433,10 +454,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         : "border-white/10 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
                     } disabled:opacity-50 disabled:cursor-not-allowed`}
                     aria-invalid={Boolean(errors.email && touched.email)}
-                    aria-describedby={errors.email && touched.email ? "email-error" : undefined}
+                    aria-describedby={
+                      errors.email && touched.email ? "email-error" : undefined
+                    }
                   />
                   {errors.email && touched.email && (
-                    <p id="email-error" className="mt-1 text-xs text-rose-400 font-medium">
+                    <p
+                      id="email-error"
+                      className="mt-1 text-xs text-rose-400 font-medium"
+                    >
                       {errors.email}
                     </p>
                   )}
@@ -455,7 +481,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     name="message"
                     rows={4}
                     value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("message", e.target.value)
+                    }
                     onBlur={() => handleBlur("message")}
                     disabled={status === "loading"}
                     placeholder="Hi Prasanta, I'd like to discuss a project..."
@@ -465,10 +493,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         : "border-white/10 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
                     } disabled:opacity-50 disabled:cursor-not-allowed`}
                     aria-invalid={Boolean(errors.message && touched.message)}
-                    aria-describedby={errors.message && touched.message ? "message-error" : undefined}
+                    aria-describedby={
+                      errors.message && touched.message
+                        ? "message-error"
+                        : undefined
+                    }
                   />
                   {errors.message && touched.message && (
-                    <p id="message-error" className="mt-1 text-xs text-rose-400 font-medium">
+                    <p
+                      id="message-error"
+                      className="mt-1 text-xs text-rose-400 font-medium"
+                    >
                       {errors.message}
                     </p>
                   )}

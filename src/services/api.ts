@@ -27,7 +27,8 @@ export function removeStoredToken(): void {
 }
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000";
+  import.meta.env.VITE_API_URL ||
+  "https://my-portfolio-production-98ef.up.railway.app";
 
 // Base fetch helper with token and error handling
 async function request<T>(

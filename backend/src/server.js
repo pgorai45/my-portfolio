@@ -74,7 +74,19 @@ app.use(express.urlencoded({ extended: true, limit: "100kb" }));
 
 // Serve uploaded static files (resumes, project images)
 const uploadsPath = path.resolve(__dirname, "../uploads");
-app.use("/uploads", express.static(uploadsPath));
+app.use(
+  "/uploads",
+  express.static(uploadsPath, {
+    setHeaders: (res) => {
+      res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+      res.removeHeader("X-Frame-Options");
+      res.setHeader(
+        "Content-Security-Policy",
+        "frame-ancestors 'self' https://my-portfolio-pgorai45.vercel.app"
+      );
+    },
+  })
+);
 
 // API Routes
 app.use("/api/contact", publicFormLimiter, contactRoutes);
